@@ -614,6 +614,10 @@ section {
     flex-wrap: wrap;
 }
 
+.contact form textarea {
+    height: 300px;
+}
+
 .contact form .input-box input,
 .contact form textarea {
     width: 100%;
@@ -696,134 +700,6 @@ section {
     color: var(--text-color);
 }
 
-/* @media(max-width: 1285px){
-    html {
-        font-size: 55%;
-    }
-    .services-container {
-        padding-bottom: 7rem;
-        grid-template-columns: repeat(1,1fr);
-        margin: 0 5rem;
-    }
-} */
-
-/* @media(max-width:991px){
-    header {
-        padding: 2rem 3%;
-    }
-    section {
-        padding: 10rem 3% 2rem;
-    }
-    .services {
-        padding-bottom: 7rem;
-    }
-    .portfolio .card-wrapper {
-        grid-template-columns: repeat(1,1fr);
-    }
-} */
-
-/* Estilos para telas menores (smartphones)
-@media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .navbar {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #menu-icon {
-        display: block;
-        font-size: 2rem;
-        cursor: pointer;
-    }
-
-    .navbar.active {
-        display: flex;
-        background-color: rgba(0, 0, 0, 0.8);
-        position: absolute;
-        top: 80px;
-        width: 100%;
-        left: 0;
-        text-align: center;
-    }
-
-    .home-content {
-        text-align: center;
-    }
-
-    .home-img {
-        display: none;
-        /* Remove a imagem da home em telas pequenas */
- /*   }
-
-    .services-container {
-        flex-direction: column;
-    }
-
-    .portfolio-container .card-list {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .contact form {
-        flex-direction: column;
-    }
-}
-
-/* Estilos para telas médias (tablets e laptops pequenos) */
-/* @media (max-width: 1024px) {
-    .home-img img {
-            top: -26rem;
-            height: 30vh;
-            width: 25vh;
-    }
-
-    .text-animation span::before {
-            font-size: 26px;
-    }
-
-    .services-container {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .home-content {
-        margin-top: -54rem;
-    }
-
-    .social-icons a {
-        width: 7.5rem;
-        height: 6.5rem;
-        font-size: 4.5rem;
-    }
-
-    .navbar a {
-        font-size: 1.8rem;
-    }
-
-    .portfolio-container {
-        padding: 20px;
-    }
-
-    .portfolio-container .portfolio-box {
-        margin: 10px 0;
-    }
-
-    .about {
-        flex-direction: column;
-    }
-
-    .about-img {
-        display: none;
-    }
-
-} */
-
-/* Para telas menores, dispositivos móveis até 768px */
 @media (max-width: 768px) {
     .header {
       flex-direction: column;
@@ -901,7 +777,6 @@ section {
     }
   }
   
-  /* Para tablets até 1024px */
   @media (max-width: 1024px) {
 
     .logo {
@@ -953,7 +828,7 @@ section {
     }
     
     .navbar.active {
-        max-height: 400px; /* Ajuste conforme o conteúdo */
+        max-height: 400px;
         opacity: 1;
     }
     
@@ -976,7 +851,6 @@ section {
   
     .home {
       padding: 40px 20px;
-      /* gap: 4rem; */
       flex-direction: column;
     }
   
@@ -1094,14 +968,8 @@ section {
         height: 100%;
     }
 
-    /* .portfolio .portfolio-container {
-        width: 100%;
-        display: flex;
-    } */
-
     .portfolio .portfolio-container {
         display: flex;
-        /* grid-template-columns: repeat(2, 1fr); */
         gap: 25px;
         justify-items: center;
         scroll-snap-type: x mandatory;
@@ -1115,15 +983,25 @@ section {
         display: none;
     }
 
+    .portfolio-layer h4 {
+        font-size: 55px;
+    }
+
+    .portfolio-layer a {
+        width: 208px;
+        height: 77px;
+        font-size: 45px;
+    }
+
     .portfolio-container .portfolio-box {
-        flex: 0 0 calc(50% - 20px); /* Dois cards por linha */
+        flex: 0 0 calc(50% - 20px);
         scroll-snap-align: center;
         height: 80%;
     }
 
     .portfolio .heading2 {
         font-size: 6.5rem;
-        margin-top: 60px;
+        margin-top: 200px;
     }
 
     .swiper-button-next:after, .swiper-button-prev:after{
@@ -1131,17 +1009,31 @@ section {
     }
 
     .card-wrapper {
-        flex-direction: column; /* Faz os slides ficarem em coluna */
+        flex-direction: column; 
     }
 
     .swiper-slide {
-        width: 100%; /* Cada slide ocupará toda a largura */
+        width: 100%;
     }
 
     .portfolio-container .swiper-wrapper {
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    .contact h2 {
+        font-size: 6.5rem;
+        margin-top: 200px;
+    }
+
+    .contact form .input-box input, .contact form textarea {
+        padding: 3.5rem;
+        font-size: 4.6rem;
+    }
+
+    .contact form .btn {
+        margin-top: 4rem;
     }
   }
   
