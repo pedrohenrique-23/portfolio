@@ -26,6 +26,12 @@ body {
     color: var(--text-color);
 }
 
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+  }
+
 .header {
     position: fixed;
     top: 0;
@@ -221,27 +227,27 @@ section {
 
     0%,
     20% {
-        content: "Frontend Developer";
+        content: "Desenvolvedor Front-end";
     }
 
     21%,
     40% {
-        content: "Web Developer";
+        content: "Desenvolvedor Web";
     }
 
     41%,
     60% {
-        content: "Frontend Developer";
+        content: "Desenvolvedor Front-end";
     }
 
     61%,
     80% {
-        content: "Web Developer";
+        content: "Desenvolvedor Web";
     }
 
     81%,
     100% {
-        content: "Frontend Developer";
+        content: "Desenvolvedor Front-end";
     }
 }
 
@@ -701,9 +707,18 @@ section {
 }
 
 @media (max-width: 768px) {
+    section {
+        width: 100%;
+    }
+
     .header {
       flex-direction: column;
       align-items: center;
+      width: 100%;
+    }
+
+    .footer {
+        width: 100%;
     }
   
     .logo {
@@ -921,6 +936,7 @@ section {
 
     .about-content p {
         font-size: 3.5rem;
+        margin: 8rem 0 3rem;
     }
 
     .about-content .text-animation span::before {

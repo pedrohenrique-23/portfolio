@@ -37,7 +37,6 @@ function initializeSwiper() {
 }
 
 initializeSwiper();
-
 window.addEventListener('resize', initializeSwiper);
 
 const menuIcon = document.querySelector('#menu-icon');
@@ -45,4 +44,14 @@ const navbar = document.querySelector('.navbar');
 
 menuIcon.addEventListener('click', () => {
     navbar.classList.toggle('active');
+});
+
+const navLinks = document.querySelectorAll('.navbar a'); 
+
+navLinks.forEach(link => {
+    link.addEventListener('click', function () {
+        navLinks.forEach(item => item.classList.remove('active'));
+
+        this.classList.add('active');
+    });
 });
