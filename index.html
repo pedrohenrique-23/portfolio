@@ -267,21 +267,39 @@
     </section>
 
     <section class="contact" id="contact">
-      <h2 class="heading2">Contact <span>Me</span></h2>
+      <h2 class="heading2">Contate-<span>me</span></h2>
 
-      <form action="#">
+      <form
+        action="https://formsubmit.co/pedrosilva10057@gmail.com"
+        method="POST"
+      >
         <div class="input-box">
-          <input type="text" placeholder="Full Name" />
-          <input type="email" placeholder="E-mail" />
+          <input type="text" name="name" placeholder="Full Name" required />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="E-mail"
+            required
+          />
         </div>
 
         <div class="input-box">
           <input type="number" placeholder="Phone Number" />
-          <input type="text" placeholder="Subject" />
         </div>
 
-        <textarea name="" id="" cols="30" placeholder="Tour Message"></textarea>
-        <input type="submit" value="Send Message" class="btn" />
+        <textarea
+          name="message"
+          id="message"
+          cols="30"
+          placeholder="Tour Message"
+        ></textarea>
+        <input
+          type="hidden"
+          name="_next"
+          value="http://127.0.0.1:5500/thanks.html"
+        />
+        <input type="submit" value="Enviar mensagem" class="btn" />
       </form>
     </section>
 
@@ -303,9 +321,6 @@
       </div>
 
       <ul class="list">
-        <li>
-          <a href="#">FAQ</a>
-        </li>
         <li>
           <a href="#about">Sobre mim</a>
         </li>
