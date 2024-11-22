@@ -24,6 +24,7 @@ html {
 body {
     background: var(--bg-color);
     color: var(--text-color);
+    padding-top: 9rem; /* Altura aproximada do header */
 }
 
 html, body {
@@ -707,16 +708,70 @@ section {
     color: var(--text-color);
 }
 
+.navbar {
+    display: flex;
+    flex-direction: row;
+}
+
 @media (max-width: 768px){
     body{
         display: flex;
         flex-direction: column;
         width: 100vh;
+        padding-top: 7rem; /* Ajuste este valor para corresponder à altura do header */
     }
 
+    
+    .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100vw;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        /* width: 100%; */
+        padding: 1.5rem 5%; /* Ajuste o padding para menor espaço */
+        background: rgba(0, 0, 0, 0.9); /* Fundo levemente opaco */
+        backdrop-filter: blur(5px); /* Efeito de desfoque */
+        z-index: 9999;
+    }
+
+    .logo {
+        font-size: 2rem;
+    }
+    
     section{
-        width: 100vh;
+        width: 100vw;
+    }
+    
+    
+    .navbar {
+            display: none; /* Esconde o menu por padrão */
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            flex-direction: column;
+            background: var(--second-bg-color);
+            z-index: 99;
+    }
+    
+    .navbar.active {
+        display: flex; /* Mostra o menu quando ativado */
+    }
+    
+    #menu-icon {
+        display: block; /* Mostra o ícone do menu */
+        cursor: pointer;
+    }
+    
+    .navbar a {
+        margin: 1rem 0;
+        text-align: center;
+        width: 100%;
     }
 
-    /* continuar.. */
+        
 }

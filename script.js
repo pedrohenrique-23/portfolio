@@ -39,19 +39,35 @@ function initializeSwiper() {
 initializeSwiper();
 window.addEventListener('resize', initializeSwiper);
 
+// const menuIcon = document.querySelector('#menu-icon');
+// const navbar = document.querySelector('.navbar');
+
+// menuIcon.addEventListener('click', () => {
+//     navbar.classList.toggle('active');
+// });
+
+// const navLinks = document.querySelectorAll('.navbar a'); 
+
+// navLinks.forEach(link => {
+//     link.addEventListener('click', function () {
+//         navLinks.forEach(item => item.classList.remove('active'));
+
+//         this.classList.add('active');
+//     });
+// });
+
 const menuIcon = document.querySelector('#menu-icon');
 const navbar = document.querySelector('.navbar');
 
 menuIcon.addEventListener('click', () => {
-    navbar.classList.toggle('active');
+    navbar.classList.toggle('active'); // Alterna o menu visível
+    menuIcon.classList.toggle('active'); // Pode adicionar animação ou mudança de ícone aqui
 });
 
-const navLinks = document.querySelectorAll('.navbar a'); 
-
-navLinks.forEach(link => {
-    link.addEventListener('click', function () {
-        navLinks.forEach(item => item.classList.remove('active'));
-
-        this.classList.add('active');
+// Fechar o menu ao clicar em um link
+document.querySelectorAll('.navbar a').forEach(link => {
+    link.addEventListener('click', () => {
+        navbar.classList.remove('active');
+        menuIcon.classList.remove('active');
     });
 });
