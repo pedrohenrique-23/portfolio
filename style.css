@@ -717,8 +717,8 @@ section {
     body{
         display: flex;
         flex-direction: column;
-        width: 100vh;
-        padding-top: 7rem; /* Ajuste este valor para corresponder à altura do header */
+        width: 100vw;
+        padding-top: 4rem;
     }
 
     .header {
@@ -726,7 +726,6 @@ section {
         flex-direction: row;
         justify-content: space-between;
         width: 100vw;
-
         position: fixed;
         top: 0;
         left: 0;
@@ -736,12 +735,12 @@ section {
         backdrop-filter: blur(5px); /* Efeito de desfoque */
         z-index: 9999;
     }
-
+    
     .logo {
         font-size: 2rem;
     }
     
-    section{
+    section, .header, .footer{
         width: 100vw;
     }
     
@@ -798,5 +797,46 @@ section {
 
     .about-img {
         display: none;
+    }
+
+    .portfolio-container .swiper-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .portfolio-container .swiper-slide {
+        width: 220px;
+        height: 220px;
+    }
+
+    .card-wrapper {
+        display: contents;
+    }
+
+    .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after {
+        content: none;
+    }
+
+    .portfolio-layer h4 {
+        font-size: 20px;
+        padding-bottom: 4px;
+    }
+
+    .portfolio-layer p {
+        display: none;
+    }
+
+    .portfolio-layer .icons {
+        gap: 10px;
+        flex-direction: column;
+    }
+
+
+    .contact form textarea {
+        height: 112px;
+    }
+
+    .contact h2 {
+        margin-bottom: -3rem;
     }
 }
