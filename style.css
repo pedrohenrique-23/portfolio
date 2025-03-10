@@ -442,6 +442,7 @@ section {
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
     gap: 25px;
+    justify-content: center;
 }
 
 .portfolio-container .portfolio-box {
