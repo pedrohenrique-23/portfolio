@@ -13,7 +13,7 @@
     --bg-color: #080808;
     --second-bg-color: #101010;
     --text-color: white;
-    --main-color: #ca0bf5;
+    --main-color: #0bf50b;
 }
 
 html {
@@ -144,7 +144,7 @@ section {
 }
 
 .home-content p {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 500;
     max-width: 1000px;
 }
@@ -329,7 +329,7 @@ section {
 }
 
 .about-content p {
-    font-size: 1.6rem;
+    font-size: 1.9rem;
     margin: 2rem 0 3rem;
 }
 
