@@ -1,180 +1,127 @@
-// let swiper;
-
-// function initializeSwiper() {
-//     if (window.innerWidth > 1024) {
-//         if (!swiper) {
-//             swiper = new Swiper('.card-wrapper', {
-//                 loop: true,
-//                 spaceBetween: 30,
-//                 pagination: {
-//                     el: '.swiper-pagination',
-//                     clickable: true,
-//                     dynamicBullets: true,
-//                 },
-//                 navigation: {
-//                     nextEl: '.swiper-button-next',
-//                     prevEl: '.swiper-button-prev',
-//                 },
-//                 breakpoints: {
-//                     0: {
-//                         slidesPerView: 1,
-//                     },
-//                     768: {
-//                         slidesPerView: 2,
-//                     },
-//                     1024: {
-//                         slidesPerView: 3,
-//                     },
-//                 },
-//             });
-//         }
-//     } else {
-//         if (swiper) {
-//             swiper.destroy(true, true);
-//             swiper = null;
-//         }
-//     }
-// }
-
-// function toggleSwiperButtons() {
-//     const nextButton = document.querySelector('.swiper-button-next');
-//     const prevButton = document.querySelector('.swiper-button-prev');
-
-//     if (nextButton && prevButton) {
-//         if (window.innerWidth <= 768) {
-//             // Oculta os botões de navegação em telas menores
-//             nextButton.style.display = 'none';
-//             prevButton.style.display = 'none';
-//         } else {
-//             // Mostra os botões de navegação em telas maiores
-//             nextButton.style.display = '';
-//             prevButton.style.display = '';
-//         }
-//     }
-// }
-
-// // Inicializa o Swiper e ajusta os botões ao carregar a página
-// initializeSwiper();
-// toggleSwiperButtons();
-
-// // Atualiza configurações ao redimensionar a janela
-// window.addEventListener('resize', () => {
-//     initializeSwiper();
-//     toggleSwiperButtons();
-// });
-
-// // Configuração do menu de navegação
-// const menuIcon = document.querySelector('#menu-icon');
-// const navbar = document.querySelector('.navbar');
-
-// menuIcon.addEventListener('click', () => {
-//     navbar.classList.toggle('active'); // Alterna o menu visível
-//     menuIcon.classList.toggle('active'); // Pode adicionar animação ou mudança de ícone aqui
-// });
-
-// // Fechar o menu ao clicar em um link
-// document.querySelectorAll('.navbar a').forEach(link => {
-//     link.addEventListener('click', () => {
-//         navbar.classList.remove('active');
-//         menuIcon.classList.remove('active');
-//     });
-// });
-
 let swiper;
 
 function initializeSwiper() {
-    if (window.innerWidth > 1024) {
-        if (!swiper) {
-            swiper = new Swiper('.card-wrapper', {
-                loop: true,
-                spaceBetween: 30,
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                    dynamicBullets: true,
-                },
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-                breakpoints: {
-                    0: {
-                        slidesPerView: 1,
-                    },
-                    768: {
-                        slidesPerView: 2,
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                    },
-                },
-            });
-        }
-    } else {
-        if (swiper) {
-            swiper.destroy(true, true);
-            swiper = null;
-        }
+  if (window.innerWidth > 1024) {
+    if (!swiper) {
+      swiper = new Swiper(".card-wrapper", {
+        loop: true,
+        spaceBetween: 30,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+          dynamicBullets: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 1,
+          },
+          768: {
+            slidesPerView: 2,
+          },
+          1024: {
+            slidesPerView: 3,
+          },
+        },
+      });
     }
+  } else {
+    if (swiper) {
+      swiper.destroy(true, true);
+      swiper = null;
+    }
+  }
 }
 
 function toggleSwiperButtons() {
-    const nextButton = document.querySelector('.swiper-button-next');
-    const prevButton = document.querySelector('.swiper-button-prev');
+  const nextButton = document.querySelector(".swiper-button-next");
+  const prevButton = document.querySelector(".swiper-button-prev");
 
-    if (nextButton && prevButton) {
-        if (window.innerWidth <= 768) {
-            // Oculta os botões de navegação em telas menores
-            nextButton.style.display = 'none';
-            prevButton.style.display = 'none';
-        } else {
-            // Mostra os botões de navegação em telas maiores
-            nextButton.style.display = '';
-            prevButton.style.display = '';
-        }
+  if (nextButton && prevButton) {
+    if (window.innerWidth <= 768) {
+      nextButton.style.display = "none";
+      prevButton.style.display = "none";
+    } else {
+      nextButton.style.display = "";
+      prevButton.style.display = "";
     }
+  }
 }
 
-// Função para manter o ícone do menu visível
 function keepMenuIconVisible() {
-    const menuIcon = document.querySelector('#menu-icon');
+  const menuIcon = document.querySelector("#menu-icon");
 
-    if (window.innerWidth <= 768) {
-        // Mantém o ícone do menu fixo na parte inferior direita
-        menuIcon.style.position = 'fixed';
-        menuIcon.style.bottom = '20px';
-        menuIcon.style.right = '20px';
-    } else {
-        // Retorna o ícone ao estado padrão
-        menuIcon.style.position = '';
-        menuIcon.style.bottom = '';
-        menuIcon.style.right = '';
-    }
+  if (window.innerWidth <= 768) {
+    menuIcon.style.position = "fixed";
+    menuIcon.style.bottom = "20px";
+    menuIcon.style.right = "20px";
+    menuIcon.style.zIndex = "9999";
+  } else {
+    menuIcon.style.position = "";
+    menuIcon.style.bottom = "";
+    menuIcon.style.right = "";
+    menuIcon.style.zIndex = "";
+  }
 }
 
 initializeSwiper();
 toggleSwiperButtons();
 keepMenuIconVisible();
 
-window.addEventListener('resize', () => {
-    initializeSwiper();
-    toggleSwiperButtons();
-    keepMenuIconVisible();
+window.addEventListener("resize", () => {
+  initializeSwiper();
+  toggleSwiperButtons();
+  keepMenuIconVisible();
 });
 
-// Configuração do menu de navegação
-const menuIcon = document.querySelector('#menu-icon');
-const navbar = document.querySelector('.navbar');
+const menuIcon = document.querySelector("#menu-icon");
+const navbar = document.querySelector(".navbar");
 
-menuIcon.addEventListener('click', () => {
-    navbar.classList.toggle('active'); // Alterna o menu visível
-    menuIcon.classList.toggle('active'); // Pode adicionar animação ou mudança de ícone aqui
+menuIcon.addEventListener("click", () => {
+  navbar.classList.toggle("active");
+  menuIcon.classList.toggle("active");
 });
 
-// Fechar o menu ao clicar em um link
-document.querySelectorAll('.navbar a').forEach(link => {
-    link.addEventListener('click', () => {
-        navbar.classList.remove('active');
-        menuIcon.classList.remove('active');
-    });
+document.querySelectorAll(".navbar a").forEach((link) => {
+  link.addEventListener("click", () => {
+    navbar.classList.remove("active");
+    menuIcon.classList.remove("active");
+  });
+});
+
+const themeToggleBtn = document.getElementById("theme-toggle");
+const body = document.body;
+
+const currentTheme = localStorage.getItem("theme");
+if (currentTheme) {
+  body.classList.add(currentTheme);
+  if (currentTheme === "light-theme") {
+    themeToggleBtn.querySelector("i").classList.remove("bx-sun");
+    themeToggleBtn.querySelector("i").classList.add("bx-moon");
+  } else {
+    themeToggleBtn.querySelector("i").classList.remove("bx-moon");
+    themeToggleBtn.querySelector("i").classList.add("bx-sun");
+  }
+} else {
+  body.classList.remove("light-theme");
+  themeToggleBtn.querySelector("i").classList.remove("bx-moon");
+  themeToggleBtn.querySelector("i").classList.add("bx-sun");
+}
+
+themeToggleBtn.addEventListener("click", () => {
+  body.classList.toggle("light-theme");
+
+  const icon = themeToggleBtn.querySelector("i");
+  if (body.classList.contains("light-theme")) {
+    icon.classList.remove("bx-sun");
+    icon.classList.add("bx-moon");
+    localStorage.setItem("theme", "light-theme");
+  } else {
+    icon.classList.remove("bx-moon");
+    icon.classList.add("bx-sun");
+    localStorage.setItem("theme", "dark-theme");
+  }
 });
