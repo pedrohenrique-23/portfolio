@@ -888,9 +888,10 @@ section {
   }
 
   .theme-toggle-button {
-    position: fixed;
+/*     position: fixed;
     bottom: 80px; 
-    right: 20px;
-    z-index: 9999; 
+    right: 20px; */
+    z-index: 9999;
+    margin: auto
   }
 }
