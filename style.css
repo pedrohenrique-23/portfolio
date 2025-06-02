@@ -14,7 +14,7 @@
   --bg-color: #080808; 
   --second-bg-color: #101010; 
   --text-color: white; 
-   --main-color: #007bff; 
+  --main-color: #007bff; 
   --link-hover-color: #0056b3;
   --box-shadow-color: rgba(0, 0, 0, 0.1); 
   --portfolio-bg-color: #fff; 
@@ -518,6 +518,7 @@ section {
   font-size: 16px;
   margin: 3px 0 10px;
   height: 50%;
+  color: #ffffff;
 }
 
 .portfolio-layer a {
@@ -866,6 +867,7 @@ section {
   .portfolio-layer h4 {
     font-size: 20px;
     padding-bottom: 4px;
+    color: white;
   }
 
   .portfolio-layer p {
