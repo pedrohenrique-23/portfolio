@@ -149,26 +149,26 @@
       <div class="portfolio-container swiper">
         <div class="card-wrapper">
           <ul class="card-list swiper-wrapper">
-            <li class="portfolio-box swiper-slide">
+            <li class="portfolio-box swiper-slide" data-tech="React.js, React Hooks, Firebase, Context API, React Router DOM, CSS Modules">
               <img
                 src="assets/Projects/cine-react.png"
-                alt="Projeto 1"
+                alt="Projeto CineReact"
                 class="card-img"
               />
               <h4 class="project-title">Cine React 🎬</h4>
               <div class="portfolio-layer">
                 <h4>Cine React</h4>
                 <p>
-                  O CineReact é uma aplicação web desenvolvida individualmente por mim, com o objetivo de consolidar conhecimentos em desenvolvimento front-end. Utilizando React.js, Firebase e a TMDb API, o projeto permite que usuários se cadastrem, façam login, visualizem filmes populares, favoritem seus preferidos e acessem uma área exclusiva com seus favoritos. A interface é responsiva e inclui modais com detalhes dos filmes, além de persistência em tempo real no Firestore. O CineReact foi construído do zero, do planejamento à implementação, e está em constante evolução com novas funcionalidades e melhorias de design sendo implementadas.</p>
-
-                <p><b>Tecnologias:</b> React.js · React Hooks · Firebase · Context API · React Router DOM · CSS3 · CSS Modules</p>
+                  O CineReact é uma aplicação web desenvolvida individualmente por mim, com o objetivo de consolidar conhecimentos em desenvolvimento front-end. Utilizando React.js, Firebase e a TMDb API, o projeto permite que usuários se cadastrem, façam login, visualizem filmes populares, favoritem seus preferidos e acessem uma área exclusiva com seus favoritos. A interface é responsiva e inclui modais com detalhes dos filmes, além de persistência em tempo real no Firestore. O CineReact foi construído do zero, do planejamento à implementação, e está em constante evolução com novas funcionalidades e melhorias de design sendo implementadas.
+                </p>
                 <div class="icons">
                   <a href="https://github.com/pedrohenrique-23/cine-react" target="_blank">Repositório</a>
-                  <a href="https://cine-react-beta.vercel.app/ " target="_blank">Projeto</a>
+                  <a href="https://cine-react-beta.vercel.app/" target="_blank">Projeto</a>
                 </div>
               </div>
             </li>
-            <li class="portfolio-box swiper-slide">
+            
+            <li class="portfolio-box swiper-slide" data-tech="HTML5, CSS3, JavaScript (ES6+), Tailwind CSS, Node.js">
               <img
                 src="assets/Projects/devburguer.png"
                 alt="Dev Burguer"
@@ -178,10 +178,7 @@
               <div class="portfolio-layer">
                 <h4>Dev Burguer</h4>
                 <p>
-                  Projeto interativo com HTML, CSS, JavaScript, Node.js e
-                  Tailwind, incluindo status da hamburgueria, carrinho,
-                  validação de pedidos, integração com WhatsApp e notificações
-                  em tempo real. 🍔🚀
+                  O Dev Burguer é uma aplicação web interativa desenvolvida para gerenciar o cardápio de uma hamburgueria, oferecendo uma experiência dinâmica tanto para os clientes quanto para os administradores. Com funcionalidades como controle de pedidos, integração com o WhatsApp e notificações em tempo real, o sistema permite uma comunicação mais ágil e eficiente. Utilizando tecnologias como HTML, CSS (com Tailwind CSS), JavaScript e Node.js, a aplicação conta com recursos como um indicador de status da hamburgueria, carrinho de compras, validação de pedidos e integração direta com o WhatsApp para facilitar o atendimento.
                 </p>
                 <div class="icons">
                   <a
@@ -197,7 +194,8 @@
                 </div>
               </div>
             </li>
-            <li class="portfolio-box swiper-slide">
+            
+            <li class="portfolio-box swiper-slide" data-tech="React, CSS3, SASS">
               <img
                 src="assets/Projects/nukenzie.png"
                 alt="NuKenzie"
@@ -207,9 +205,7 @@
               <div class="portfolio-layer">
                 <h4>NuKenzie</h4>
                 <p>
-                  Aplicação de gerenciamento de gastos desenvolvida com React e
-                  SASS, com componentização, gerenciamento de estado e um design
-                  fiel ao Figma para uma experiência intuitiva e escalável. 💸🚀
+                  NuKenzie é uma aplicação web desenvolvida como parte de um dos desafios do curso de Desenvolvimento Full Stack da Kenzie Academy Brasil. O projeto tem como objetivo o gerenciamento de finanças pessoais, permitindo registrar receitas e despesas e visualizar o saldo de forma clara e intuitiva. A aplicação foi construída com React.js para a interface, CSS para a estilização e JavaScript para o controle das operações financeiras. Entre suas principais funcionalidades estão o cadastro de transações, o cálculo automático do saldo e uma visualização simplificada das finanças pessoais.
                 </p>
                 <div class="icons">
                   <a
@@ -225,7 +221,8 @@
                 </div>
               </div>
             </li>
-            <li class="portfolio-box swiper-slide">
+
+            <li class="portfolio-box swiper-slide" data-tech="Em breve">
               <img
                 src="assets/Projects/image-card-projects.jfif"
                 alt="Projeto 1"
@@ -239,8 +236,8 @@
                   atentos para futuras atualizações! 🚀
                 </p>
                 <div class="icons">
-                  <a href="" target="_blank">Repositório</a>
-                  <a href="" target="_blank">Projeto</a>
+                  <a href="#" target="_blank">Repositório</a>
+                  <a href="#" target="_blank">Projeto</a>
                 </div>
               </div>
             </li>
@@ -293,7 +290,7 @@
     <footer class="footer">
       <div class="social">
         <a
-          href="https://https://www.linkedin.com/in/pedro-silva-dev-2002-js/"
+          href="https://www.linkedin.com/in/pedro-silva-dev-2002-js/"
           target="_blank"
           ><i class="bx bxl-linkedin"></i
         ></a>
@@ -336,6 +333,7 @@
         <img src="" alt="Imagem do Projeto" class="modal-img" id="modal-img" />
         <h2 id="modal-title"></h2>
         <p id="modal-description"></p>
+        <div class="modal-tech-tags" id="modal-tech-tags"></div>
         <div class="modal-links">
           <a href="#" id="modal-repo-link" class="btn" target="_blank">Repositório</a>
           <a href="#" id="modal-project-link" class="btn" target="_blank">Ver Projeto</a>

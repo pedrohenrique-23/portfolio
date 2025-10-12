@@ -469,10 +469,9 @@ section {
   height: 300px;
   width: 400px;
   user-select: none;
-  transition: 0.3s ease; /* Adicionando transição suave para o hover */
+  transition: 0.3s ease;
 }
 
-/* Novo efeito de hover para os cards clicáveis */
 .portfolio-box:hover {
   transform: scale(1.03);
   cursor: pointer;
@@ -507,7 +506,7 @@ section {
   padding: 0 40px;
   opacity: 0;
   transition: 0.5s ease;
-  pointer-events: none; /* Impede que o layer antigo interfira no clique */
+  pointer-events: none;
 }
 
 .portfolio-layer h4 {
@@ -889,9 +888,6 @@ section {
   }
 
   .theme-toggle-button {
-    /*     position: fixed;
-    bottom: 80px; 
-    right: 20px; */
     z-index: 9999;
     margin: auto;
   }
@@ -906,7 +902,7 @@ section {
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(5px);
-  display: none; /* Inicia escondido */
+  display: none;
   align-items: center;
   justify-content: center;
   z-index: 1000;
@@ -977,4 +973,23 @@ section {
 .modal-links {
   display: flex;
   gap: 2rem;
+}
+
+/* Estilos para as Tags de Tecnologia no Modal */
+.modal-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.tech-tag {
+  background-color: rgba(0, 123, 255, 0.15);
+  color: var(--main-color);
+  padding: 0.5rem 1.2rem;
+  border-radius: 2rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  border: 1px solid var(--main-color);
 }

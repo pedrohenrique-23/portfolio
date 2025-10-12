@@ -139,6 +139,7 @@ const modalTitle = document.getElementById("modal-title");
 const modalDescription = document.getElementById("modal-description");
 const modalRepoLink = document.getElementById("modal-repo-link");
 const modalProjectLink = document.getElementById("modal-project-link");
+const modalTechTags = document.getElementById("modal-tech-tags");
 
 // Adiciona um evento de clique a cada card de projeto
 portfolioBoxes.forEach((card) => {
@@ -149,6 +150,7 @@ portfolioBoxes.forEach((card) => {
     const description = card.querySelector(".portfolio-layer p").innerText;
     const repoLink = card.querySelector(".portfolio-layer a:nth-of-type(1)").href;
     const projectLink = card.querySelector(".portfolio-layer a:nth-of-type(2)").href;
+    const techString = card.dataset.tech;
 
     // Preenche o modal com as informações
     modalImg.src = imgSrc;
@@ -156,6 +158,19 @@ portfolioBoxes.forEach((card) => {
     modalDescription.innerText = description;
     modalRepoLink.href = repoLink;
     modalProjectLink.href = projectLink;
+
+    // Lógica para criar e adicionar as tags
+    modalTechTags.innerHTML = ""; // Limpa as tags do projeto anterior
+
+    if (techString) {
+      const technologies = techString.split(",").map((tech) => tech.trim());
+      technologies.forEach((techName) => {
+        const tagElement = document.createElement("span");
+        tagElement.className = "tech-tag";
+        tagElement.innerText = techName;
+        modalTechTags.appendChild(tagElement);
+      });
+    }
 
     // Mostra o modal
     modalOverlay.style.display = "flex";
