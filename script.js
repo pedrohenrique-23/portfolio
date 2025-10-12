@@ -125,3 +125,54 @@ themeToggleBtn.addEventListener("click", () => {
     localStorage.setItem("theme", "dark-theme");
   }
 });
+
+// --- LÓGICA DO MODAL DE PROJETOS ---
+
+// Seleciona todos os elementos necessários
+const portfolioBoxes = document.querySelectorAll(".portfolio-box");
+const modalOverlay = document.getElementById("project-modal-overlay");
+const modalCloseBtn = document.getElementById("modal-close-btn");
+
+// Seleciona os elementos dentro do modal que serão preenchidos
+const modalImg = document.getElementById("modal-img");
+const modalTitle = document.getElementById("modal-title");
+const modalDescription = document.getElementById("modal-description");
+const modalRepoLink = document.getElementById("modal-repo-link");
+const modalProjectLink = document.getElementById("modal-project-link");
+
+// Adiciona um evento de clique a cada card de projeto
+portfolioBoxes.forEach((card) => {
+  card.addEventListener("click", () => {
+    // Pega as informações do card clicado (do layer escondido)
+    const imgSrc = card.querySelector(".card-img").src;
+    const title = card.querySelector(".portfolio-layer h4").innerText;
+    const description = card.querySelector(".portfolio-layer p").innerText;
+    const repoLink = card.querySelector(".portfolio-layer a:nth-of-type(1)").href;
+    const projectLink = card.querySelector(".portfolio-layer a:nth-of-type(2)").href;
+
+    // Preenche o modal com as informações
+    modalImg.src = imgSrc;
+    modalTitle.innerText = title;
+    modalDescription.innerText = description;
+    modalRepoLink.href = repoLink;
+    modalProjectLink.href = projectLink;
+
+    // Mostra o modal
+    modalOverlay.style.display = "flex";
+  });
+});
+
+// Função para fechar o modal
+const closeModal = () => {
+  modalOverlay.style.display = "none";
+};
+
+// Adiciona eventos para fechar o modal
+modalCloseBtn.addEventListener("click", closeModal);
+
+// Fecha o modal se o usuário clicar fora do conteúdo
+modalOverlay.addEventListener("click", (event) => {
+  if (event.target === modalOverlay) {
+    closeModal();
+  }
+});

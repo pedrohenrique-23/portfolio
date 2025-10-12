@@ -11,28 +11,28 @@
 
 :root {
   /* Variáveis para o Tema Escuro (Padrão) */
-  --bg-color: #080808; 
-  --second-bg-color: #101010; 
-  --text-color: white; 
-  --main-color: #007bff; 
+  --bg-color: #080808;
+  --second-bg-color: #101010;
+  --text-color: white;
+  --main-color: #007bff;
   --link-hover-color: #0056b3;
-  --box-shadow-color: rgba(0, 0, 0, 0.1); 
-  --portfolio-bg-color: #fff; 
-  --portfolio-text-color: black; 
-  --input-bg-color: #080808; 
+  --box-shadow-color: rgba(0, 0, 0, 0.1);
+  --portfolio-bg-color: #fff;
+  --portfolio-text-color: black;
+  --input-bg-color: #080808;
 }
 
-  /* Variáveis para o Tema Claro (Padrão) */
+/* Variáveis para o Tema Claro (Padrão) */
 body.light-theme {
-  --bg-color: #f7f7f7; 
-  --second-bg-color: #ffffff; 
-  --text-color: #333; 
-  --main-color: #007bff; 
-  --link-hover-color: #0056b3; 
-  --box-shadow-color: rgba(0, 0, 0, 0.1); 
-  --portfolio-bg-color: #ffffff; 
-  --portfolio-text-color: #333; 
-  --input-bg-color: #e0e0e0; 
+  --bg-color: #f7f7f7;
+  --second-bg-color: #ffffff;
+  --text-color: #333;
+  --main-color: #007bff;
+  --link-hover-color: #0056b3;
+  --box-shadow-color: rgba(0, 0, 0, 0.1);
+  --portfolio-bg-color: #ffffff;
+  --portfolio-text-color: #333;
+  --input-bg-color: #e0e0e0;
 }
 
 html {
@@ -68,7 +68,7 @@ body {
 }
 
 body.light-theme .header {
-  background: rgba(255, 255, 255, 0.8); 
+  background: rgba(255, 255, 255, 0.8);
 }
 
 .logo {
@@ -89,7 +89,7 @@ body.light-theme .header {
 }
 
 body.light-theme .logo span {
-  text-shadow: none; 
+  text-shadow: none;
 }
 
 .navbar a {
@@ -469,15 +469,19 @@ section {
   height: 300px;
   width: 400px;
   user-select: none;
+  transition: 0.3s ease; /* Adicionando transição suave para o hover */
+}
+
+/* Novo efeito de hover para os cards clicáveis */
+.portfolio-box:hover {
+  transform: scale(1.03);
+  cursor: pointer;
+  box-shadow: 0 0 20px var(--main-color);
 }
 
 .portfolio-box img {
   transition: 0.5s ease;
   width: 100%;
-}
-
-.portfolio-box:hover img {
-  transform: scale(1.2);
 }
 
 .project-title {
@@ -503,10 +507,7 @@ section {
   padding: 0 40px;
   opacity: 0;
   transition: 0.5s ease;
-}
-
-.portfolio-box:hover .portfolio-layer {
-  opacity: 1;
+  pointer-events: none; /* Impede que o layer antigo interfira no clique */
 }
 
 .portfolio-layer h4 {
@@ -743,7 +744,7 @@ section {
   align-items: center;
   box-shadow: 0 0 15px var(--main-color);
   transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-  margin-left: 2rem; 
+  margin-left: 2rem;
 }
 
 .theme-toggle-button:hover {
@@ -753,7 +754,7 @@ section {
 }
 
 .theme-toggle-button i {
-  font-size: 2.5rem; 
+  font-size: 2.5rem;
 }
 
 @media (max-width: 768px) {
@@ -888,10 +889,92 @@ section {
   }
 
   .theme-toggle-button {
-/*     position: fixed;
-    bottom: 80px; 
-    right: 20px; */
+    /*     position: fixed;
+    bottom: 80px; 
+    right: 20px; */
     z-index: 9999;
-    margin: auto
+    margin: auto;
   }
+}
+
+/* Estilos do Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  display: none; /* Inicia escondido */
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+}
+
+.modal-content {
+  position: relative;
+  background: var(--second-bg-color);
+  padding: 3rem;
+  border-radius: 1.5rem;
+  width: 100%;
+  max-width: 700px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: slide-down 0.3s ease-out;
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  font-size: 4rem;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.modal-close-btn:hover {
+  color: var(--main-color);
+  transform: scale(1.1);
+}
+
+.modal-img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+}
+
+.modal-content h2 {
+  font-size: 3rem;
+  color: var(--main-color);
+  margin-bottom: 1rem;
+}
+
+.modal-content p {
+  font-size: 1.6rem;
+  color: var(--text-color);
+  margin-bottom: 2.5rem;
+}
+
+.modal-links {
+  display: flex;
+  gap: 2rem;
 }

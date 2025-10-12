@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Responsive Portfolio Website</title>
-    <link rel="icon" type="image/png" href="assets/portfolio-logo.png">
+    <link rel="icon" type="image/png" href="assets/portfolio-logo.png" />
     <link rel="stylesheet" href="style.css" />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
@@ -328,6 +328,19 @@
       </ul>
       <p class="copyright">© Pedro Silva | All Rights Reserved</p>
     </footer>
+
+    <div class="modal-overlay" id="project-modal-overlay">
+      <div class="modal-content">
+        <span class="modal-close-btn" id="modal-close-btn">&times;</span>
+        <img src="" alt="Imagem do Projeto" class="modal-img" id="modal-img" />
+        <h2 id="modal-title"></h2>
+        <p id="modal-description"></p>
+        <div class="modal-links">
+          <a href="#" id="modal-repo-link" class="btn" target="_blank">Repositório</a>
+          <a href="#" id="modal-project-link" class="btn" target="_blank">Ver Projeto</a>
+        </div>
+      </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
