@@ -433,19 +433,11 @@ section {
   line-height: 1; /* Remove espaçamento extra da fonte */
 }
 
-.services-box svg {
-  width: 8rem;  
-  height: 8rem; 
-  /* A linha 'fill: var(--text-color);' deve ser REMOVIDA */
-  transition: 0.5s ease;
+.services-box svg.icon-nextjs {
+  width: 50px;
+  height: 50px;
 }
 
-/* Regra de HOVER para o SVG (deve ser REMOVIDA ou vazia) */
-.services-box:hover svg {
-  /* A linha 'fill: var(--main-color);' deve ser REMOVIDA */
-  /* Podemos manter um leve zoom para dar feedback */
-  transform: scale(1.05); 
-}
 
 .services-box:hover i {
   color: var(--main-color);
