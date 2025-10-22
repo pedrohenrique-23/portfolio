@@ -148,16 +148,41 @@ portfolioBoxes.forEach((card) => {
     const imgSrc = card.querySelector(".card-img").src;
     const title = card.querySelector(".portfolio-layer h4").innerText;
     const description = card.querySelector(".portfolio-layer p").innerText;
-    const repoLink = card.querySelector(".portfolio-layer a:nth-of-type(1)").href;
-    const projectLink = card.querySelector(".portfolio-layer a:nth-of-type(2)").href;
+    
+    // --- INÍCIO DA CORREÇÃO ---
+    // Seleciona os elementos de link em vez de acessar o .href diretamente
+    const repoLinkElement = card.querySelector(
+      ".portfolio-layer a:nth-of-type(1)"
+    );
+    const projectLinkElement = card.querySelector(
+      ".portfolio-layer a:nth-of-type(2)"
+    );
+    // --- FIM DA CORREÇÃO ---
+
     const techString = card.dataset.tech;
 
     // Preenche o modal com as informações
     modalImg.src = imgSrc;
     modalTitle.innerText = title;
     modalDescription.innerText = description;
-    modalRepoLink.href = repoLink;
-    modalProjectLink.href = projectLink;
+
+    // --- INÍCIO DA CORREÇÃO ---
+    // Verifica e define o link do REPOSITÓRIO
+    if (repoLinkElement) {
+      modalRepoLink.href = repoLinkElement.href;
+      modalRepoLink.style.display = "inline-block"; // Garante que está visível
+    } else {
+      modalRepoLink.style.display = "none"; // Esconde se não houver
+    }
+
+    // Verifica e define o link do PROJETO
+    if (projectLinkElement) {
+      modalProjectLink.href = projectLinkElement.href;
+      modalProjectLink.style.display = "inline-block"; // Mostra o botão
+    } else {
+      modalProjectLink.style.display = "none"; // Esconde o botão se não houver link
+    }
+    // --- FIM DA CORREÇÃO ---
 
     // Lógica para criar e adicionar as tags
     modalTechTags.innerHTML = ""; // Limpa as tags do projeto anterior

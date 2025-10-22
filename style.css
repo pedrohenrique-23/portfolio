@@ -418,9 +418,22 @@ section {
 }
 
 .services-box i {
-  font-size: 1200%;
+  font-size: 12rem;
   color: var(--text-color);
   transition: 0.5s ease;
+}
+
+/* Regra para o ícone SVG do Next.js */
+.services-box svg {
+  width: 12rem; /* Mesmo tamanho dos outros ícones */
+  height: 12rem; /* Mesmo tamanho dos outros ícones */
+  fill: var(--text-color); /* 'fill' é o 'color' para SVG */
+  transition: 0.5s ease;
+}
+
+/* Regra de HOVER para o SVG (para igualar aos outros) */
+.services-box:hover svg {
+  fill: var(--main-color);
 }
 
 .services-box:hover i {
