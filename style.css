@@ -411,27 +411,37 @@ section {
 .services-container .services-box {
   flex: 1 1 300px;
   background: var(--bg-color);
-  padding: 25px 0 75px 0;
+  /* Padding ajustado para ser uniforme */
+  padding: 3rem 2rem; 
   text-align: center;
   transition: 0.5s ease;
-  height: 162px;
+  /* height: 162px; */ /* <-- REMOVIDO */
+
+  /* Adicionado para alinhar e garantir altura mínima */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px; /* Garante altura mínima uniforme */
+  gap: 1.5rem; /* Espaço entre o ícone e o h3 */
 }
 
 .services-box i {
-  font-size: 12rem;
+  font-size: 8rem; /* Tamanho padronizado (80px) */
   color: var(--text-color);
   transition: 0.5s ease;
+  line-height: 1; /* Remove espaçamento extra da fonte */
 }
 
 /* Regra para o ícone SVG do Next.js */
 .services-box svg {
-  width: 12rem; /* Mesmo tamanho dos outros ícones */
-  height: 12rem; /* Mesmo tamanho dos outros ícones */
-  fill: var(--text-color); /* 'fill' é o 'color' para SVG */
+  width: 8rem;  /* Mesmo tamanho dos ícones (80px) */
+  height: 8rem; /* Mesmo tamanho dos ícones (80px) */
+  fill: var(--text-color); /* 'fill' é a cor para SVG */
   transition: 0.5s ease;
 }
 
-/* Regra de HOVER para o SVG (para igualar aos outros) */
+/* Regra de HOVER para o SVG */
 .services-box:hover svg {
   fill: var(--main-color);
 }
