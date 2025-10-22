@@ -436,13 +436,15 @@ section {
 .services-box svg {
   width: 8rem;  
   height: 8rem; 
-  fill: var(--text-color); /* Pega a cor do tema */
+  /* A linha 'fill: var(--text-color);' deve ser REMOVIDA */
   transition: 0.5s ease;
 }
 
-/* Regra de HOVER para o SVG (para imitar o 'i') */
+/* Regra de HOVER para o SVG (deve ser REMOVIDA ou vazia) */
 .services-box:hover svg {
-  fill: var(--main-color); /* Fica azul no hover */
+  /* A linha 'fill: var(--main-color);' deve ser REMOVIDA */
+  /* Podemos manter um leve zoom para dar feedback */
+  transform: scale(1.05); 
 }
 
 .services-box:hover i {
