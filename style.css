@@ -437,7 +437,7 @@ section {
 .services-box svg {
   width: 8rem;  /* Mesmo tamanho dos ícones (80px) */
   height: 8rem; /* Mesmo tamanho dos ícones (80px) */
-  fill: var(--text-color); /* 'fill' é a cor para SVG */
+  /* fill: var(--text-color); */ /* <-- REMOVA OU COMENTE ESTA LINHA */
   transition: 0.5s ease;
 }
 
