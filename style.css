@@ -10,7 +10,6 @@
 }
 
 :root {
-  /* Variáveis para o Tema Escuro (Padrão) */
   --bg-color: #080808;
   --second-bg-color: #101010;
   --text-color: white;
@@ -22,7 +21,6 @@
   --input-bg-color: #080808;
 }
 
-/* Variáveis para o Tema Claro (Padrão) */
 body.light-theme {
   --bg-color: #f7f7f7;
   --second-bg-color: #ffffff;
@@ -411,26 +409,23 @@ section {
 .services-container .services-box {
   flex: 1 1 300px;
   background: var(--bg-color);
-  /* Padding ajustado para ser uniforme */
   padding: 3rem 2rem; 
   text-align: center;
   transition: 0.5s ease;
-  /* height: 162px; */ /* <-- REMOVIDO */
 
-  /* Adicionado para alinhar e garantir altura mínima */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 220px; /* Garante altura mínima uniforme */
-  gap: 1.5rem; /* Espaço entre o ícone e o h3 */
+  min-height: 220px; 
+  gap: 1.5rem; 
 }
 
 .services-box i {
-  font-size: 8rem; /* Tamanho padronizado (80px) */
+  font-size: 8rem; 
   color: var(--text-color);
   transition: 0.5s ease;
-  line-height: 1; /* Remove espaçamento extra da fonte */
+  line-height: 1; 
 }
 
 .services-box:hover i {
@@ -903,7 +898,6 @@ section {
   }
 }
 
-/* Estilos do Modal */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -985,7 +979,6 @@ section {
   gap: 2rem;
 }
 
-/* Estilos para as Tags de Tecnologia no Modal */
 .modal-tech-tags {
   display: flex;
   flex-wrap: wrap;

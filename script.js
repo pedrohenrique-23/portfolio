@@ -126,14 +126,10 @@ themeToggleBtn.addEventListener("click", () => {
   }
 });
 
-// --- LÓGICA DO MODAL DE PROJETOS ---
-
-// Seleciona todos os elementos necessários
 const portfolioBoxes = document.querySelectorAll(".portfolio-box");
 const modalOverlay = document.getElementById("project-modal-overlay");
 const modalCloseBtn = document.getElementById("modal-close-btn");
 
-// Seleciona os elementos dentro do modal que serão preenchidos
 const modalImg = document.getElementById("modal-img");
 const modalTitle = document.getElementById("modal-title");
 const modalDescription = document.getElementById("modal-description");
@@ -141,51 +137,40 @@ const modalRepoLink = document.getElementById("modal-repo-link");
 const modalProjectLink = document.getElementById("modal-project-link");
 const modalTechTags = document.getElementById("modal-tech-tags");
 
-// Adiciona um evento de clique a cada card de projeto
 portfolioBoxes.forEach((card) => {
   card.addEventListener("click", () => {
-    // Pega as informações do card clicado (do layer escondido)
     const imgSrc = card.querySelector(".card-img").src;
     const title = card.querySelector(".portfolio-layer h4").innerText;
     const description = card.querySelector(".portfolio-layer p").innerText;
     
-    // --- INÍCIO DA CORREÇÃO ---
-    // Seleciona os elementos de link em vez de acessar o .href diretamente
     const repoLinkElement = card.querySelector(
       ".portfolio-layer a:nth-of-type(1)"
     );
     const projectLinkElement = card.querySelector(
       ".portfolio-layer a:nth-of-type(2)"
     );
-    // --- FIM DA CORREÇÃO ---
 
     const techString = card.dataset.tech;
 
-    // Preenche o modal com as informações
     modalImg.src = imgSrc;
     modalTitle.innerText = title;
     modalDescription.innerText = description;
 
-    // --- INÍCIO DA CORREÇÃO ---
-    // Verifica e define o link do REPOSITÓRIO
     if (repoLinkElement) {
       modalRepoLink.href = repoLinkElement.href;
-      modalRepoLink.style.display = "inline-block"; // Garante que está visível
+      modalRepoLink.style.display = "inline-block";
     } else {
-      modalRepoLink.style.display = "none"; // Esconde se não houver
+      modalRepoLink.style.display = "none"; 
     }
 
-    // Verifica e define o link do PROJETO
     if (projectLinkElement) {
       modalProjectLink.href = projectLinkElement.href;
-      modalProjectLink.style.display = "inline-block"; // Mostra o botão
+      modalProjectLink.style.display = "inline-block";
     } else {
-      modalProjectLink.style.display = "none"; // Esconde o botão se não houver link
+      modalProjectLink.style.display = "none"; 
     }
-    // --- FIM DA CORREÇÃO ---
 
-    // Lógica para criar e adicionar as tags
-    modalTechTags.innerHTML = ""; // Limpa as tags do projeto anterior
+    modalTechTags.innerHTML = ""; 
 
     if (techString) {
       const technologies = techString.split(",").map((tech) => tech.trim());
@@ -197,20 +182,16 @@ portfolioBoxes.forEach((card) => {
       });
     }
 
-    // Mostra o modal
     modalOverlay.style.display = "flex";
   });
 });
 
-// Função para fechar o modal
 const closeModal = () => {
   modalOverlay.style.display = "none";
 };
 
-// Adiciona eventos para fechar o modal
 modalCloseBtn.addEventListener("click", closeModal);
 
-// Fecha o modal se o usuário clicar fora do conteúdo
 modalOverlay.addEventListener("click", (event) => {
   if (event.target === modalOverlay) {
     closeModal();
