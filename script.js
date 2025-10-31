@@ -1,4 +1,9 @@
-ocument.addEventListener("DOMContentLoaded", () => {
+// ======================================================
+// ============ SCRIPT PARA "SCROLL SPY" DA NAVBAR =====
+// ======================================================
+
+// Espera o DOM carregar
+document.addEventListener("DOMContentLoaded", () => {
   
   // 1. Seleciona todas as seções que têm um ID
   const sections = document.querySelectorAll("section[id]");
@@ -42,6 +47,11 @@ ocument.addEventListener("DOMContentLoaded", () => {
     observer.observe(section);
   });
 });
+
+
+// ======================================================
+// ============ RESTANTE DO SEU SCRIPT.JS ===============
+// ======================================================
 
 let swiper;
 
@@ -243,6 +253,7 @@ modalOverlay.addEventListener("click", (event) => {
   }
 });
 
+// Este é o seu observer original para a timeline
 document.addEventListener("DOMContentLoaded", () => {
   const timelineItems = document.querySelectorAll(".timeline-item");
 

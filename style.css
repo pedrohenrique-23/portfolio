@@ -409,7 +409,7 @@ section {
 .services-container .services-box {
   flex: 1 1 300px;
   background: var(--bg-color);
-  padding: 3rem 2rem; 
+  padding: 3rem 2rem;
   text-align: center;
   transition: 0.5s ease;
 
@@ -417,15 +417,15 @@ section {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 220px; 
-  gap: 1.5rem; 
+  min-height: 220px;
+  gap: 1.5rem;
 }
 
 .services-box i {
-  font-size: 8rem; 
+  font-size: 8rem;
   color: var(--text-color);
   transition: 0.5s ease;
-  line-height: 1; 
+  line-height: 1;
 }
 
 .services-box:hover i {
@@ -997,10 +997,9 @@ section {
   border: 1px solid var(--main-color);
 }
 
-/* O container principal da seção */
 /* ====================================================== */
 /* ============ CSS DA SEÇÃO FORMAÇÃO (TIMELINE) ======== */
-/* ============     (VERSÃO COM TEMA INTEGRADO)   ======== */
+/* ============    (VERSÃO COM TEMA INTEGRADO) 	  ======== */
 /* ====================================================== */
 
 /* O container principal da seção - AGORA USA VARIÁVEIS */
@@ -1035,7 +1034,7 @@ section {
 /* A Linha do Tempo (Timeline) */
 .timeline {
   position: relative;
-  overflow: auto;
+  overflow: auto; /* <-- CORREÇÃO DO 'FLOAT' */
 }
 
 /* A linha central vertical - AGORA USA VARIÁVEIS */
@@ -1145,11 +1144,6 @@ section {
 /* ============ RESPONSIVIDADE (MOBILE) ================= */
 /* ====================================================== */
 
-/* As regras de responsividade da timeline não precisam 
-  de alteração de cor, então são mantidas como estão. 
-  A única mudança foi mover a regra '.timeline::before' 
-  para fora da media query, pois ela não é SASS.
-*/
 @media (max-width: 768px) {
   .timeline::before {
     left: 10px;
