@@ -1035,6 +1035,7 @@ section {
 /* A Linha do Tempo (Timeline) */
 .timeline {
   position: relative;
+  overflow: auto;
 }
 
 /* A linha central vertical - AGORA USA VARIÁVEIS */
