@@ -1,36 +1,27 @@
-// ======================================================
-// ============ SCRIPT PARA "SCROLL SPY" DA NAVBAR =====
-// ======================================================
-
-// Espera o DOM carregar
 document.addEventListener("DOMContentLoaded", () => {
-  
-  // 1. Seleciona todas as seções que têm um ID
+
   const sections = document.querySelectorAll("section[id]");
-  
-  // 2. Seleciona todos os links da barra de navegação
+
   const navLinks = document.querySelectorAll(".navbar a");
 
-  // 3. Opções do IntersectionObserver
   const observerOptions = {
-    root: null, // Observa em relação ao viewport
-    rootMargin: "-20% 0px -70% 0px", // Cria uma "linha de gatilho" no topo da tela
-    threshold: 0 // Aciona assim que a seção entra nessa "linha"
+    root: null,
+    rootMargin: "-20% 0px -70% 0px",
+    threshold: 0
   };
 
-  // 4. A função que será chamada quando uma seção for observada
   const observerCallback = (entries, observer) => {
     entries.forEach(entry => {
-      // Se a seção está cruzando nossa "linha de gatilho"
+
       if (entry.isIntersecting) {
         const sectionId = entry.target.id;
 
-        // Remove a classe 'active' de TODOS os links
+
         navLinks.forEach(link => {
           link.classList.remove("active");
         });
 
-        // Adiciona a classe 'active' apenas no link correspondente
+
         const activeLink = document.querySelector(`.navbar a[href*='${sectionId}']`);
         if (activeLink) {
           activeLink.classList.add("active");
@@ -39,19 +30,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // 5. Cria o observador
+
   const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-  // 6. Manda o observador "assistir" a cada uma das suas seções
+
   sections.forEach(section => {
     observer.observe(section);
   });
 });
 
 
-// ======================================================
-// ============ RESTANTE DO SEU SCRIPT.JS ===============
-// ======================================================
 
 let swiper;
 
@@ -197,7 +185,7 @@ portfolioBoxes.forEach((card) => {
     const imgSrc = card.querySelector(".card-img").src;
     const title = card.querySelector(".portfolio-layer h4").innerText;
     const description = card.querySelector(".portfolio-layer p").innerText;
-    
+
     const repoLinkElement = card.querySelector(
       ".portfolio-layer a:nth-of-type(1)"
     );
@@ -215,17 +203,17 @@ portfolioBoxes.forEach((card) => {
       modalRepoLink.href = repoLinkElement.href;
       modalRepoLink.style.display = "inline-block";
     } else {
-      modalRepoLink.style.display = "none"; 
+      modalRepoLink.style.display = "none";
     }
 
     if (projectLinkElement) {
       modalProjectLink.href = projectLinkElement.href;
       modalProjectLink.style.display = "inline-block";
     } else {
-      modalProjectLink.style.display = "none"; 
+      modalProjectLink.style.display = "none";
     }
 
-    modalTechTags.innerHTML = ""; 
+    modalTechTags.innerHTML = "";
 
     if (techString) {
       const technologies = techString.split(",").map((tech) => tech.trim());
@@ -253,22 +241,21 @@ modalOverlay.addEventListener("click", (event) => {
   }
 });
 
-// Este é o seu observer original para a timeline
 document.addEventListener("DOMContentLoaded", () => {
   const timelineItems = document.querySelectorAll(".timeline-item");
 
   const observerOptions = {
-    root: null, // Observa em relação ao viewport
+    root: null,
     rootMargin: "0px",
-    threshold: 0.3 // Aciona quando 30% do item estiver visível
+    threshold: 0.3
   };
 
   const observerCallback = (entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // Adiciona a classe quando o item entra na tela
+
         entry.target.classList.add("is-visible");
-        // (Opcional) Para de observar o item após ele aparecer
+
         observer.unobserve(entry.target);
       }
     });
@@ -276,7 +263,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-  // Observa cada item da timeline
+
   timelineItems.forEach(item => {
     observer.observe(item);
   });
