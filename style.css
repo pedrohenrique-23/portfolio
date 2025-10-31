@@ -998,127 +998,167 @@ section {
 }
 
 /* O container principal da seção */
+/* ====================================================== */
+/* ============ CSS DA SEÇÃO FORMAÇÃO (TIMELINE) ======== */
+/* ============     (VERSÃO COM TEMA INTEGRADO)   ======== */
+/* ====================================================== */
+
+/* O container principal da seção - AGORA USA VARIÁVEIS */
 .formacao {
-  padding: 60px 0;
-  background-color: #f9f9f9; /* Um fundo sutil para a seção */
+  /* Usamos a cor de fundo secundária para criar contraste */
+  background-color: var(--second-bg-color);
   text-align: center;
+  /* O padding e min-height já são herdados da regra 'section {}' */
 }
 
+/* O container de conteúdo (sem mudanças) */
 .formacao .container {
   max-width: 900px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
+/* Título da Seção - Alinhado com seu .heading2 */
 .formacao h2 {
-  font-size: 2.5rem;
+  font-size: 45px; /* Padrão do .heading2 */
   margin-bottom: 40px;
+  color: var(--text-color); /* Cor do texto do tema */
+  padding-top: 40px; /* Compensando o padding do .heading2 */
+}
+
+/* Garante que o emoji não pegue a cor do 'span' do tema */
+.formacao h2 span {
+  color: var(--text-color);
+  text-shadow: none;
 }
 
 /* A Linha do Tempo (Timeline) */
 .timeline {
   position: relative;
-  /* A linha central vertical */
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%; /* Centralizada no desktop */
-    width: 3px;
-    height: 100%;
-    background-color: #ddd;
-    transform: translateX(-50%);
-  }
+}
+
+/* A linha central vertical - AGORA USA VARIÁVEIS */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 3px;
+  height: 100%;
+  background-color: var(--main-color); /* Usa a cor principal (azul) */
+  opacity: 0.2; /* Linha sutil */
+  transform: translateX(-50%);
 }
 
 .timeline-item {
   position: relative;
   width: 50%;
   margin-bottom: 30px;
-  /* Prepara para a animação */
-  opacity: 0; 
+  /* Animação (sem mudanças) */
+  opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* Classe que será adicionada via JS */
+/* Classe do JS (sem mudanças) */
 .timeline-item.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Posiciona os itens na timeline */
+/* Posição (sem mudanças) */
 .timeline-item:nth-child(odd) {
   float: left;
-  padding-right: 30px; /* Espaçamento da linha central */
+  padding-right: 30px;
   clear: both;
 }
 
 .timeline-item:nth-child(even) {
   float: right;
-  padding-left: 30px; /* Espaçamento da linha central */
+  padding-left: 30px;
   clear: both;
 }
 
-/* O card de conteúdo */
+/* O card de conteúdo - AGORA USA VARIÁVEIS */
 .timeline-content {
   padding: 20px;
-  background-color: #fff;
-  border: 1px solid #eee;
+  /* Cor dos cards de projeto */
+  background-color: var(--portfolio-bg-color);
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  /* Sombra do tema */
+  box-shadow: 0 4px 12px var(--box-shadow-color);
   text-align: left;
+  border: none; /* Remove a borda clara */
+  /* Cor do texto dos cards de projeto */
+  color: var(--portfolio-text-color);
 }
 
-/* A "bolinha" na linha do tempo */
+/* A "bolinha" na linha do tempo - AGORA USA VARIÁVEIS */
 .timeline-content::after {
   content: '';
   position: absolute;
   top: 20px;
   width: 15px;
   height: 15px;
-  background-color: #fff;
-  border: 3px solid #007bff; /* Cor de destaque (ex: azul) */
+  /* Cor do fundo da SEÇÃO */
+  background-color: var(--second-bg-color);
+  /* Borda na cor principal (azul) */
+  border: 3px solid var(--main-color);
   border-radius: 50%;
   z-index: 1;
 }
 
-/* Ajusta a posição da bolinha para cada lado */
+/* Posição da bolinha (sem mudanças) */
 .timeline-item:nth-child(odd) .timeline-content::after {
-  right: -8px; /* Metade da bolinha (15px/2) + ajuste */
+  right: -8px;
 }
 
 .timeline-item:nth-child(even) .timeline-content::after {
-  left: -8px; /* Metade da bolinha (15px/2) + ajuste */
+  left: -8px;
 }
 
+/* Estilos de texto do card - AGORA USA VARIÁVEIS */
 .timeline-date {
-  font-size: 0.9rem;
+  font-size: 1.4rem; /* Tamanho ajustado */
   font-weight: 600;
-  color: #007bff; /* Cor de destaque */
+  color: var(--main-color); /* Cor de destaque (azul) */
   margin-bottom: 5px;
   display: block;
 }
 
 .timeline-content h3 {
-  font-size: 1.25rem;
-  margin-bottom: 5px;
+  font-size: 2.2rem; /* Próximo ao 25px do card de projeto */
+  margin-bottom: 10px;
+  /* Cor escura, padrão para cards claros */
+  color: var(--portfolio-text-color);
+  font-weight: 600;
+}
+
+.timeline-content p {
+  font-size: 1.6rem; /* Padrão dos cards de projeto */
+  color: var(--portfolio-text-color);
+  line-height: 1.6;
 }
 
 /* ====================================================== */
 /* ============ RESPONSIVIDADE (MOBILE) ================= */
 /* ====================================================== */
 
+/* As regras de responsividade da timeline não precisam 
+  de alteração de cor, então são mantidas como estão. 
+  A única mudança foi mover a regra '.timeline::before' 
+  para fora da media query, pois ela não é SASS.
+*/
 @media (max-width: 768px) {
   .timeline::before {
-    left: 10px; /* Move a linha para a esquerda */
+    left: 10px;
   }
 
   .timeline-item {
     width: 100%;
-    float: none; /* Desativa o float */
+    float: none;
     clear: both;
-    padding-left: 50px; /* Espaço para a linha e a bolinha */
+    padding-left: 50px;
     padding-right: 10px;
   }
 
@@ -1128,10 +1168,8 @@ section {
     padding-left: 50px;
   }
 
-  /* Ajusta a bolinha para a nova posição da linha */
   .timeline-content::after {
-    left: -28px; 
-    /* (50px de padding-left - 15px de largura / 2 - 3px de borda ~= 28px) */
+    left: -28px;
   }
 
   .timeline-item:nth-child(odd) .timeline-content::after,
