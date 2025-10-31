@@ -1,3 +1,48 @@
+ocument.addEventListener("DOMContentLoaded", () => {
+  
+  // 1. Seleciona todas as seções que têm um ID
+  const sections = document.querySelectorAll("section[id]");
+  
+  // 2. Seleciona todos os links da barra de navegação
+  const navLinks = document.querySelectorAll(".navbar a");
+
+  // 3. Opções do IntersectionObserver
+  const observerOptions = {
+    root: null, // Observa em relação ao viewport
+    rootMargin: "-20% 0px -70% 0px", // Cria uma "linha de gatilho" no topo da tela
+    threshold: 0 // Aciona assim que a seção entra nessa "linha"
+  };
+
+  // 4. A função que será chamada quando uma seção for observada
+  const observerCallback = (entries, observer) => {
+    entries.forEach(entry => {
+      // Se a seção está cruzando nossa "linha de gatilho"
+      if (entry.isIntersecting) {
+        const sectionId = entry.target.id;
+
+        // Remove a classe 'active' de TODOS os links
+        navLinks.forEach(link => {
+          link.classList.remove("active");
+        });
+
+        // Adiciona a classe 'active' apenas no link correspondente
+        const activeLink = document.querySelector(`.navbar a[href*='${sectionId}']`);
+        if (activeLink) {
+          activeLink.classList.add("active");
+        }
+      }
+    });
+  };
+
+  // 5. Cria o observador
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+  // 6. Manda o observador "assistir" a cada uma das suas seções
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+});
+
 let swiper;
 
 function initializeSwiper() {
