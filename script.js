@@ -197,3 +197,31 @@ modalOverlay.addEventListener("click", (event) => {
     closeModal();
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const timelineItems = document.querySelectorAll(".timeline-item");
+
+  const observerOptions = {
+    root: null, // Observa em relação ao viewport
+    rootMargin: "0px",
+    threshold: 0.3 // Aciona quando 30% do item estiver visível
+  };
+
+  const observerCallback = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Adiciona a classe quando o item entra na tela
+        entry.target.classList.add("is-visible");
+        // (Opcional) Para de observar o item após ele aparecer
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+  // Observa cada item da timeline
+  timelineItems.forEach(item => {
+    observer.observe(item);
+  });
+});

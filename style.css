@@ -996,3 +996,146 @@ section {
   font-weight: 500;
   border: 1px solid var(--main-color);
 }
+
+/* O container principal da seção */
+.formacao {
+  padding: 60px 0;
+  background-color: #f9f9f9; /* Um fundo sutil para a seção */
+  text-align: center;
+}
+
+.formacao .container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.formacao h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+/* A Linha do Tempo (Timeline) */
+.timeline {
+  position: relative;
+  /* A linha central vertical */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%; /* Centralizada no desktop */
+    width: 3px;
+    height: 100%;
+    background-color: #ddd;
+    transform: translateX(-50%);
+  }
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  margin-bottom: 30px;
+  /* Prepara para a animação */
+  opacity: 0; 
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Classe que será adicionada via JS */
+.timeline-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Posiciona os itens na timeline */
+.timeline-item:nth-child(odd) {
+  float: left;
+  padding-right: 30px; /* Espaçamento da linha central */
+  clear: both;
+}
+
+.timeline-item:nth-child(even) {
+  float: right;
+  padding-left: 30px; /* Espaçamento da linha central */
+  clear: both;
+}
+
+/* O card de conteúdo */
+.timeline-content {
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: left;
+}
+
+/* A "bolinha" na linha do tempo */
+.timeline-content::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+  border: 3px solid #007bff; /* Cor de destaque (ex: azul) */
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Ajusta a posição da bolinha para cada lado */
+.timeline-item:nth-child(odd) .timeline-content::after {
+  right: -8px; /* Metade da bolinha (15px/2) + ajuste */
+}
+
+.timeline-item:nth-child(even) .timeline-content::after {
+  left: -8px; /* Metade da bolinha (15px/2) + ajuste */
+}
+
+.timeline-date {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #007bff; /* Cor de destaque */
+  margin-bottom: 5px;
+  display: block;
+}
+
+.timeline-content h3 {
+  font-size: 1.25rem;
+  margin-bottom: 5px;
+}
+
+/* ====================================================== */
+/* ============ RESPONSIVIDADE (MOBILE) ================= */
+/* ====================================================== */
+
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 10px; /* Move a linha para a esquerda */
+  }
+
+  .timeline-item {
+    width: 100%;
+    float: none; /* Desativa o float */
+    clear: both;
+    padding-left: 50px; /* Espaço para a linha e a bolinha */
+    padding-right: 10px;
+  }
+
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    float: none;
+    padding-left: 50px;
+  }
+
+  /* Ajusta a bolinha para a nova posição da linha */
+  .timeline-content::after {
+    left: -28px; 
+    /* (50px de padding-left - 15px de largura / 2 - 3px de borda ~= 28px) */
+  }
+
+  .timeline-item:nth-child(odd) .timeline-content::after,
+  .timeline-item:nth-child(even) .timeline-content::after {
+    left: -28px;
+  }
+}
