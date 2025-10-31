@@ -244,6 +244,9 @@ modalOverlay.addEventListener("click", (event) => {
 document.addEventListener("DOMContentLoaded", () => {
   const timelineItems = document.querySelectorAll(".timeline-item");
 
+  const skillBoxes = document.querySelectorAll(".services-box");
+  const projectBoxes = document.querySelectorAll(".portfolio-box");
+
   const observerOptions = {
     root: null,
     rootMargin: "0px",

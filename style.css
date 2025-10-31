@@ -423,6 +423,16 @@ section {
   gap: 1.5rem;
 }
 
+.services-box:hover {
+  transform: translateY(-5px); /* Move 5px para cima */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* No light-theme, a sombra deve ser mais sutil */
+body.light-theme .services-box:hover {
+  box-shadow: 0 10px 20px var(--box-shadow-color);
+}
+
 .services-box i {
   font-size: 8rem;
   color: var(--text-color);
@@ -488,6 +498,10 @@ section {
 .portfolio-box img {
   transition: 0.5s ease;
   width: 100%;
+}
+
+.portfolio-box:hover img {
+  transform: scale(1.1); /* Aumenta a imagem em 10% */
 }
 
 .project-title {
@@ -1046,7 +1060,9 @@ section {
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.timeline-item.is-visible {
+.timeline-item.is-visible,
+.services-box.is-visible,
+.portfolio-box.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -1119,7 +1135,9 @@ section {
     left: 10px;
   }
 
-  .timeline-item {
+  .timeline-item,
+  .services-box,
+  .portfolio-box {
     width: 100%;
     float: none;
     clear: both;
