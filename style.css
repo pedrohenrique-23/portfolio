@@ -605,7 +605,7 @@ body.light-theme .services-box:hover {
 
 .portfolio-box {
   width: 350px;
-  height: 450px;
+  min-height: 450px;
   padding: 20px;
   /* margin: 20px; <<< LINHA REMOVIDA */
   background-color: var(--portfolio-bg-color);
@@ -1162,4 +1162,66 @@ body.light-theme .services-box:hover {
   .timeline-item:nth-child(even) .timeline-content::after {
     left: -28px;
   }
+}
+
+/* Container para o conteúdo inferior visível */
+.portfolio-card-content {
+  padding-top: 1.5rem; /* Dá um espaço do título */
+}
+
+/* Título do projeto (ajuste de espaçamento) */
+.portfolio-box .project-title {
+  margin-top: 1.5rem;
+  padding: 0 0.5rem;
+}
+
+/* Estilo para as tags de tecnologia visíveis */
+.portfolio-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+  margin-bottom: 2rem; /* Espaço até os botões */
+}
+
+/* Estilo de cada tag (reaproveitando o estilo do seu modal) */
+.portfolio-tech-tags span {
+  background-color: rgba(0, 123, 255, 0.15);
+  color: var(--main-color);
+  padding: 0.4rem 1.2rem;
+  border-radius: 2rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  border: 1px solid rgba(0, 123, 255, 0.3);
+}
+
+/* Container para os links visíveis */
+.portfolio-links {
+  display: flex;
+  justify-content: center; /* Centraliza os botões */
+  gap: 1.5rem;
+}
+
+/* Estilo dos novos botões do card */
+.btn-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem; /* Espaço entre ícone e texto */
+  padding: 0.8rem 1.8rem;
+  background: var(--main-color);
+  box-shadow: 0 0 10px var(--main-color);
+  border-radius: 2rem;
+  font-size: 1.4rem;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.btn-card i {
+  font-size: 1.8rem; /* Tamanho do ícone */
+}
+
+.btn-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--main-color);
 }
