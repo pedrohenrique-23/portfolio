@@ -613,7 +613,7 @@ body.light-theme .services-box:hover {
   box-shadow: 0 4px 8px var(--box-shadow-color);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 /* .swiper-button-prev:after,
@@ -1172,7 +1172,7 @@ body.light-theme .services-box:hover {
 /* Título do projeto (ajuste de espaçamento) */
 .portfolio-box .project-title {
   margin-top: 1.5rem;
-  padding: 0 0.5rem;
+  padding: 0rem;
 }
 
 /* Estilo para as tags de tecnologia visíveis */
@@ -1224,4 +1224,28 @@ body.light-theme .services-box:hover {
 .btn-card:hover {
   transform: scale(1.05);
   box-shadow: 0 0 20px var(--main-color);
+}
+
+/* Estilo para a nova descrição curta */
+.project-description {
+  font-size: 1.6rem; /* <<< AUMENTADO de 1.4rem */
+  color: var(--text-color);
+  opacity: 0.8; 
+  line-height: 1.6;
+  padding: 0; /* Remove o padding antigo */
+  margin-top: 1.5rem; /* <<< ADICIONADO (espaço do título) */
+  margin-bottom: 1.5rem; /* Espaço antes do link "Ver detalhes" */
+  text-align: center;
+}
+
+/* Estilo para o link "Ver detalhes" */
+.project-details-link {
+  /* ... (regras antigas) ... */
+  font-size: 1.6rem; /* <<< AUMENTADO de 1.5rem */
+  margin-bottom: 2rem; /* Espaço antes das tags */
+}
+
+.portfolio-card-bottom {
+  margin-top: auto; /* <<< ESSA É A CORREÇÃO */
+  padding-top: 2rem; /* Dá um espaço para respirar */
 }
