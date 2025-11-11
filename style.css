@@ -470,11 +470,14 @@ body.light-theme .services-box:hover {
 }
 
 .portfolio .portfolio-container {
-  display: flex;
-  grid-template-columns: repeat(3, 1fr);
-  align-items: center;
-  gap: 25px;
+  display: grid;
+  /* Esta é a linha mais importante. Cria um grid responsivo */
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem; /* 25px = 2.5rem */
   justify-content: center;
+  width: 90%; /* Ajuste a largura do container */
+  max-width: 1200px; /* Define um limite máximo */
+  margin: 0 auto; /* Centraliza o container */
 }
 
 .portfolio-container .portfolio-box {
@@ -569,14 +572,14 @@ body.light-theme .services-box:hover {
   margin-top: 10px;
 }
 
-.card-wrapper {
+/* .card-wrapper {
   max-width: 1100px;
   margin: 0 60px 35px;
   padding: 20px 10px;
   overflow: hidden;
-}
+} */
 
-.portfolio-container .swiper-wrapper {
+/* .portfolio-container .swiper-wrapper {
   display: flex;
 }
 
@@ -586,7 +589,7 @@ body.light-theme .services-box:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .portfolio-box img {
   max-width: 100%;
@@ -594,17 +597,17 @@ body.light-theme .services-box:hover {
   border-radius: 10px;
 }
 
-.swiper-button-next,
+/* .swiper-button-next,
 .swiper-button-prev {
   color: var(--main-color);
   font-size: 2rem;
-}
+} */
 
 .portfolio-box {
   width: 350px;
   height: 450px;
   padding: 20px;
-  margin: 20px;
+  /* margin: 20px; <<< LINHA REMOVIDA */
   background-color: var(--portfolio-bg-color);
   border-radius: 10px;
   box-shadow: 0 4px 8px var(--box-shadow-color);
@@ -613,7 +616,7 @@ body.light-theme .services-box:hover {
   justify-content: space-between;
 }
 
-.swiper-button-prev:after,
+/* .swiper-button-prev:after,
 .swiper-rtl .swiper-button-next:after {
   content: "prev";
   color: var(--main-color);
@@ -623,16 +626,16 @@ body.light-theme .services-box:hover {
 .swiper-rtl .swiper-button-prev:after {
   content: "next";
   color: var(--main-color);
-}
+} */
 
-.swiper-horizontal>.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet,
+/* .swiper-horizontal>.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet,
 .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
   transition: 0.2s transform, 0.2s left;
 
   background-color: var(--main-color);
   height: 15px;
   width: 15px;
-}
+} */
 
 .contact {
   background-color: var(--bg-color);
