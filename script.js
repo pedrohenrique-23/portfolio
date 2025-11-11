@@ -179,52 +179,62 @@ const modalProjectLink = document.getElementById("modal-project-link");
 const modalTechTags = document.getElementById("modal-tech-tags");
 
 portfolioBoxes.forEach((card) => {
-  card.addEventListener("click", () => {
-    const imgSrc = card.querySelector(".card-img").src;
-    const title = card.querySelector(".portfolio-layer h4").innerText;
-    const description = card.querySelector(".portfolio-layer p").innerText;
+  // 1. Encontra o link de "Ver detalhes" ESPECÍFICO deste card
+  const detailsLink = card.querySelector(".project-details-link");
 
-    const repoLinkElement = card.querySelector(
-      ".portfolio-layer a:nth-of-type(1)"
-    );
-    const projectLinkElement = card.querySelector(
-      ".portfolio-layer a:nth-of-type(2)"
-    );
+  // 2. *** AQUI ESTÁ A CORREÇÃO ***
+  // Só adicione o listener SE o 'detailsLink' foi encontrado
+  if (detailsLink) {
+    
+    detailsLink.addEventListener("click", () => {
+      // 3. O resto da lógica é o mesmo...
+      const imgSrc = card.querySelector(".card-img").src;
+      const title = card.querySelector(".portfolio-layer h4").innerText;
+      const description = card.querySelector(".portfolio-layer p").innerText;
 
-    const techString = card.dataset.tech;
+      const repoLinkElement = card.querySelector(
+        ".portfolio-layer a:nth-of-type(1)"
+      );
+      const projectLinkElement = card.querySelector(
+        ".portfolio-layer a:nth-of-type(2)"
+      );
 
-    modalImg.src = imgSrc;
-    modalTitle.innerText = title;
-    modalDescription.innerText = description;
+      const techString = card.dataset.tech;
 
-    if (repoLinkElement) {
-      modalRepoLink.href = repoLinkElement.href;
-      modalRepoLink.style.display = "inline-block";
-    } else {
-      modalRepoLink.style.display = "none";
-    }
+      modalImg.src = imgSrc;
+      modalTitle.innerText = title;
+      modalDescription.innerText = description;
 
-    if (projectLinkElement) {
-      modalProjectLink.href = projectLinkElement.href;
-      modalProjectLink.style.display = "inline-block";
-    } else {
-      modalProjectLink.style.display = "none";
-    }
+      if (repoLinkElement) {
+        modalRepoLink.href = repoLinkElement.href;
+        modalRepoLink.style.display = "inline-block";
+      } else {
+        modalRepoLink.style.display = "none";
+      }
 
-    modalTechTags.innerHTML = "";
+      if (projectLinkElement) {
+        modalProjectLink.href = projectLinkElement.href;
+        modalProjectLink.style.display = "inline-block";
+      } else {
+        modalProjectLink.style.display = "none";
+      }
 
-    if (techString) {
-      const technologies = techString.split(",").map((tech) => tech.trim());
-      technologies.forEach((techName) => {
-        const tagElement = document.createElement("span");
-        tagElement.className = "tech-tag";
-        tagElement.innerText = techName;
-        modalTechTags.appendChild(tagElement);
-      });
-    }
+      modalTechTags.innerHTML = "";
 
-    modalOverlay.style.display = "flex";
-  });
+      if (techString) {
+        const technologies = techString.split(",").map((tech) => tech.trim());
+        technologies.forEach((techName) => {
+          const tagElement = document.createElement("span");
+          tagElement.className = "tech-tag";
+          tagElement.innerText = techName;
+          modalTechTags.appendChild(tagElement);
+        });
+      }
+
+      modalOverlay.style.display = "flex";
+    });
+
+  } // <-- FIM DO IF
 });
 
 const closeModal = () => {
