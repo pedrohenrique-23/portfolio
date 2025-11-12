@@ -35,7 +35,8 @@ body.light-theme {
 
 html {
   font-size: 62.5%;
-  overflow-x: hidden; /* CORRETO: Evita scroll horizontal */
+  overflow-x: hidden;
+  /* CORRETO: Evita scroll horizontal */
   font-family: "Poppins", sans-serif;
 }
 
@@ -43,7 +44,8 @@ body {
   background: var(--bg-color);
   color: var(--text-color);
   padding-top: 9rem;
-  width: 100%; /* CORRETO: Define o body como 100% */
+  width: 100%;
+  /* CORRETO: Define o body como 100% */
   /* Removemos o width: 100% duplicado do 'html, body' */
 }
 
@@ -1011,6 +1013,9 @@ body.light-theme .services-box:hover {
   font-size: 1.6rem;
   color: var(--text-color);
   margin-bottom: 2.5rem;
+  text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .modal-links {
@@ -1154,6 +1159,20 @@ body.light-theme .services-box:hover {
   color: var(--portfolio-text-color);
   line-height: 1.6;
 }
+
+.modal-content {
+    padding: 2.5rem 2rem; 
+    max-height: 80vh;     
+    overflow-y: auto;     
+  }
+
+  .modal-content h2 {
+    font-size: 2.5rem; 
+  }
+
+  .modal-content p {
+    font-size: 1.5rem; 
+  }
 
 @media (max-width: 768px) {
   .timeline::before {
