@@ -117,7 +117,6 @@ const modalProjectLink = document.getElementById("modal-project-link");
 const modalTechTags = document.getElementById("modal-tech-tags");
 
 portfolioBoxes.forEach((card) => {
-
   const detailsLink = card.querySelector(".project-details-link");
 
   if (detailsLink) {
@@ -209,3 +208,50 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(item);
   });
 });
+
+(function () {
+  emailjs.init({
+    publicKey: "NtvVu0sxga-KngX1p",
+  });
+})();
+
+const contactForm = document.getElementById("contact-form");
+const submitBtn = document.getElementById("contact-submit-btn");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const formData = {
+      name: this.elements["name"].value,
+      email: this.elements["email"].value,
+      message: this.elements["message"].value,
+    };
+
+    const originalBtnText = submitBtn.value;
+    submitBtn.value = "Enviando...";
+    submitBtn.disabled = true;
+
+    emailjs.send("service_82re68l", "template_pozflhv", formData).then(
+      () => {
+        submitBtn.value = "Enviado com sucesso!";
+
+        contactForm.reset();
+
+        setTimeout(() => {
+          submitBtn.value = originalBtnText;
+          submitBtn.disabled = false;
+        }, 3000);
+      },
+      (error) => {
+        console.error("ERRO AO ENVIAR E-MAIL:", error);
+        submitBtn.value = "Erro ao enviar. Tente novamente.";
+
+        setTimeout(() => {
+          submitBtn.value = originalBtnText;
+          submitBtn.disabled = false;
+        }, 5000);
+      }
+    );
+  });
+}

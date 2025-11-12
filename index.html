@@ -351,16 +351,15 @@
   </section>
 
   <section class="contact" id="contact">
-    <h2 class="heading2">Contate-<span>me</span></h2>
-    <form action="https://formsubmit.co/pedrosilva10057@gmail.com" method="POST">
-      <div class="input-box">
-        <input type="text" name="name" placeholder="Nome completo" required />
-        <input type="email" name="email" placeholder="E-mail" required />
-      </div>
-      <textarea name="message" cols="30" placeholder="Sua mensagem"></textarea>
-      <input type="hidden" name="_next" value="https://portfolio-opal-psi-45.vercel.app/thanks.html" />
-      <input type="submit" value="Enviar mensagem" class="btn" />
-    </form>
+  <h2 class="heading2">Contate-<span>me</span></h2>
+  
+  <form id="contact-form"> 
+    <div class="input-box">
+      <input type="text" name="name" placeholder="Nome completo" required />
+      <input type="email" name="email" placeholder="E-mail" required />
+    </div>
+    <textarea name="message" cols="30" placeholder="Sua mensagem" required></textarea> <input type="submit" value="Enviar mensagem" class="btn" id="contact-submit-btn" />
+  </form>
   </section>
 
   <footer class="footer">
@@ -380,7 +379,6 @@
     <p class="copyright">© Pedro Silva | Todos os direitos reservados</p>
   </footer>
 
-  <!-- Modal -->
   <div class="modal-overlay" id="project-modal-overlay">
     <div class="modal-content">
       <span class="modal-close-btn" id="modal-close-btn">&times;</span>
@@ -394,7 +392,7 @@
       </div>
     </div>
   </div>
-
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="script.js"></script>
 </body>
 
