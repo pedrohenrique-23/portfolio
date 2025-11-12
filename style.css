@@ -1,3 +1,4 @@
+/* ESTILOS INICIAIS (NÃO MUDAM) */
 * {
   margin: 0;
   padding: 0;
@@ -51,6 +52,7 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+/* HEADER, HOME, ABOUT, ETC (NÃO MUDAM) */
 .header {
   position: fixed;
   top: 0;
@@ -247,7 +249,6 @@ section {
 }
 
 @keyframes words {
-
   0%,
   20% {
     content: "Desenvolvedor Front-end";
@@ -275,7 +276,6 @@ section {
 }
 
 @keyframes typing {
-
   10%,
   15%,
   30%,
@@ -428,7 +428,6 @@ section {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* No light-theme, a sombra deve ser mais sutil */
 body.light-theme .services-box:hover {
   box-shadow: 0 10px 20px var(--box-shadow-color);
 }
@@ -458,6 +457,10 @@ body.light-theme .services-box:hover {
   margin: 10px 0 30px;
 }
 
+/* ==========================================================
+// SEÇÃO PORTFOLIO CORRIGIDA
+// ========================================================== */
+
 .portfolio {
   padding-bottom: 100px;
 }
@@ -469,27 +472,33 @@ body.light-theme .services-box:hover {
   padding: 40px 0;
 }
 
+/* 1. CONTAINER EM GRID RESPONSIVO */
 .portfolio .portfolio-container {
   display: grid;
-  /* Esta é a linha mais importante. Cria um grid responsivo */
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2.5rem; /* 25px = 2.5rem */
+  gap: 2.5rem;
   justify-content: center;
-  width: 90%; /* Ajuste a largura do container */
-  max-width: 1200px; /* Define um limite máximo */
-  margin: 0 auto; /* Centraliza o container */
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+/* 2. CARD BOX CORRIGIDO */
 .portfolio-container .portfolio-box {
   position: relative;
   display: flex;
-  border-radius: 20px;
-  box-shadow: 0 0 10px var(--box-shadow-color);
+  flex-direction: column; /* Organiza o conteúdo verticalmente */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px var(--box-shadow-color);
   overflow: hidden;
-  height: 300px;
-  width: 400px;
   user-select: none;
   transition: 0.3s ease;
+  width: 350px;
+  min-height: 450px; /* Altura mínima para alinhamento */
+  padding: 20px;
+  background-color: var(--portfolio-bg-color);
+  /* justify-content: space-between; FOI REMOVIDO */
+  /* margin: 20px; FOI REMOVIDO */
 }
 
 .portfolio-box:hover {
@@ -501,18 +510,21 @@ body.light-theme .services-box:hover {
 .portfolio-box img {
   transition: 0.5s ease;
   width: 100%;
+  border-radius: 10px; /* Adicionado para consistência */
 }
 
 .portfolio-box:hover img {
-  transform: scale(1.1); /* Aumenta a imagem em 10% */
+  transform: scale(1.1);
 }
 
 .project-title {
-  font-size: 20px;
+  font-size: 2rem; /* Mantido do seu original */
   color: var(--portfolio-text-color);
-  margin-top: 25px;
+  margin-top: 1.5rem; /* Espaçamento da imagem */
+  text-align: center; /* Centralizado */
 }
 
+/* 3. CAMADA DO MODAL (NÃO MUDA) */
 .portfolio-box .portfolio-layer {
   position: absolute;
   bottom: 0;
@@ -530,7 +542,7 @@ body.light-theme .services-box:hover {
   padding: 0 40px;
   opacity: 0;
   transition: 0.5s ease;
-  pointer-events: none;
+  pointer-events: none; /* Essencial para o clique "atravessar" */
 }
 
 .portfolio-layer h4 {
@@ -572,70 +584,116 @@ body.light-theme .services-box:hover {
   margin-top: 10px;
 }
 
-/* .card-wrapper {
-  max-width: 1100px;
-  margin: 0 60px 35px;
-  padding: 20px 10px;
-  overflow: hidden;
-} */
+/* 4. REGRAS DO SWIPER REMOVIDAS */
+/* .card-wrapper { ... } REMOVIDO */
+/* .portfolio-container .swiper-wrapper { ... } REMOVIDO */
+/* .portfolio-container .swiper-slide { ... } REMOVIDO */
+/* .swiper-button-next, .swiper-button-prev { ... } REMOVIDO */
+/* .swiper-button-prev:after { ... } REMOVIDO */
+/* .swiper-button-next:after { ... } REMOVIDO */
+/* .swiper-horizontal > .swiper-pagination-bullets { ... } REMOVIDO */
 
-/* .portfolio-container .swiper-wrapper {
-  display: flex;
+/* =========================================== */
+/* NOVOS ESTILOS - CARD VISÍVEL                */
+/* =========================================== */
+
+/* Descrição curta */
+.project-description {
+  font-size: 1.6rem;
+  color: var(--portfolio-text-color);
+  opacity: 0.8;
+  line-height: 1.6;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
-.portfolio-container .swiper-slide {
-  width: auto;
+/* Link "Ver detalhes" */
+.project-details-link {
+  display: inline-block;
+  width: 100%;
   text-align: center;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--main-color);
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: 0.3s ease;
+}
+
+.project-details-link i {
+  vertical-align: middle;
+  transition: 0.3s ease;
+}
+
+.project-details-link:hover {
+  letter-spacing: 0.5px;
+}
+
+.project-details-link:hover i {
+  transform: translateX(3px);
+}
+
+/* Container de baixo (Tags e Botões) */
+.portfolio-card-bottom {
+  margin-top: auto; /* EMPURRA PARA O FUNDO */
+  padding-top: 2rem;
+}
+
+/* Tags de tecnologia visíveis */
+.portfolio-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+/* Estilo de cada tag */
+.portfolio-tech-tags span {
+  background-color: rgba(0, 123, 255, 0.15);
+  color: var(--main-color);
+  padding: 0.4rem 1.2rem;
+  border-radius: 2rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  border: 1px solid rgba(0, 123, 255, 0.3);
+}
+
+/* Container dos links visíveis */
+.portfolio-links {
   display: flex;
   justify-content: center;
+  gap: 1.5rem;
+}
+
+/* Botões do card (Código/Deploy) */
+.btn-card {
+  display: inline-flex;
   align-items: center;
-} */
-
-.portfolio-box img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
+  gap: 0.8rem;
+  padding: 0.8rem 1.8rem;
+  background: var(--main-color);
+  box-shadow: 0 0 10px var(--main-color);
+  border-radius: 2rem;
+  font-size: 1.4rem;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: 0.3s ease;
 }
 
-/* .swiper-button-next,
-.swiper-button-prev {
-  color: var(--main-color);
-  font-size: 2rem;
-} */
-
-.portfolio-box {
-  width: 350px;
-  min-height: 450px;
-  padding: 20px;
-  /* margin: 20px; <<< LINHA REMOVIDA */
-  background-color: var(--portfolio-bg-color);
-  border-radius: 10px;
-  box-shadow: 0 4px 8px var(--box-shadow-color);
-  display: flex;
-  flex-direction: column;
-  /* justify-content: space-between; */
+.btn-card i {
+  font-size: 1.8rem;
 }
 
-/* .swiper-button-prev:after,
-.swiper-rtl .swiper-button-next:after {
-  content: "prev";
-  color: var(--main-color);
+.btn-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--main-color);
 }
 
-.swiper-button-next:after,
-.swiper-rtl .swiper-button-prev:after {
-  content: "next";
-  color: var(--main-color);
-} */
-
-/* .swiper-horizontal>.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet,
-.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
-  transition: 0.2s transform, 0.2s left;
-
-  background-color: var(--main-color);
-  height: 15px;
-  width: 15px;
-} */
+/* =========================================== */
+/* RESTO DO CSS (NÃO MUDA)                     */
+/* =========================================== */
 
 .contact {
   background-color: var(--bg-color);
@@ -865,23 +923,28 @@ body.light-theme .services-box:hover {
     display: none;
   }
 
+  /* MEDIA QUERY DO PORTFOLIO - REMOVIDO SWIPER */
   .portfolio-container .swiper-wrapper {
+    /* Esta regra estava no seu original, mas não afeta mais */
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
   .portfolio-container .swiper-slide {
+    /* Esta regra estava no seu original, mas não afeta mais */
     width: 220px;
     height: 220px;
   }
 
   .card-wrapper {
+    /* Esta regra estava no seu original, mas não afeta mais */
     display: contents;
   }
 
   .swiper-button-next:after,
   .swiper-rtl .swiper-button-prev:after {
+    /* Esta regra estava no seu original, mas não afeta mais */
     content: none;
   }
 
@@ -914,6 +977,7 @@ body.light-theme .services-box:hover {
   }
 }
 
+/* MODAL (NÃO MUDA) */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -1014,6 +1078,7 @@ body.light-theme .services-box:hover {
   border: 1px solid var(--main-color);
 }
 
+/* FORMAÇÃO E TIMELINE (NÃO MUDAM) */
 .formacao {
   background-color: var(--second-bg-color);
   text-align: center;
@@ -1029,7 +1094,7 @@ body.light-theme .services-box:hover {
   font-size: 45px;
   margin-bottom: 40px;
   color: var(--text-color);
-  padding-top: 40px
+  padding-top: 40px;
 }
 
 .formacao h2 span {
@@ -1039,11 +1104,11 @@ body.light-theme .services-box:hover {
 
 .timeline {
   position: relative;
-  overflow: auto
+  overflow: auto;
 }
 
 .timeline::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 50%;
@@ -1093,7 +1158,7 @@ body.light-theme .services-box:hover {
 }
 
 .timeline-content::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 20px;
   width: 15px;
@@ -1162,199 +1227,4 @@ body.light-theme .services-box:hover {
   .timeline-item:nth-child(even) .timeline-content::after {
     left: -28px;
   }
-}
-
-/* Container para o conteúdo inferior visível */
-.portfolio-card-content {
-  padding-top: 1.5rem; /* Dá um espaço do título */
-}
-
-/* Título do projeto (ajuste de espaçamento) */
-.portfolio-box .project-title {
-  margin-top: 1.5rem;
-  padding: 0rem;
-}
-
-/* Estilo para as tags de tecnologia visíveis */
-.portfolio-tech-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  justify-content: center;
-  margin-bottom: 2rem; /* Espaço até os botões */
-}
-
-/* Estilo de cada tag (reaproveitando o estilo do seu modal) */
-.portfolio-tech-tags span {
-  background-color: rgba(0, 123, 255, 0.15);
-  color: var(--main-color);
-  padding: 0.4rem 1.2rem;
-  border-radius: 2rem;
-  font-size: 1.3rem;
-  font-weight: 500;
-  border: 1px solid rgba(0, 123, 255, 0.3);
-}
-
-/* Container para os links visíveis */
-.portfolio-links {
-  display: flex;
-  justify-content: center; /* Centraliza os botões */
-  gap: 1.5rem;
-}
-
-/* Estilo dos novos botões do card */
-.btn-card {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.8rem; /* Espaço entre ícone e texto */
-  padding: 0.8rem 1.8rem;
-  background: var(--main-color);
-  box-shadow: 0 0 10px var(--main-color);
-  border-radius: 2rem;
-  font-size: 1.4rem;
-  color: var(--text-color);
-  font-weight: 500;
-  transition: 0.3s ease;
-}
-
-.btn-card i {
-  font-size: 1.8rem; /* Tamanho do ícone */
-}
-
-.btn-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px var(--main-color);
-}
-
-/* Estilo para a nova descrição curta */
-.project-description {
-  font-size: 1.6rem; /* <<< AUMENTADO de 1.4rem */
-  color: var(--text-color);
-  opacity: 0.8; 
-  line-height: 1.6;
-  padding: 0; /* Remove o padding antigo */
-  margin-top: 1.5rem; /* <<< ADICIONADO (espaço do título) */
-  margin-bottom: 1.5rem; /* Espaço antes do link "Ver detalhes" */
-  text-align: center;
-}
-
-/* Estilo para o link "Ver detalhes" */
-.project-details-link {
-  /* ... (regras antigas) ... */
-  font-size: 1.6rem; /* <<< AUMENTADO de 1.5rem */
-  margin-bottom: 2rem; /* Espaço antes das tags */
-}
-
-.portfolio-card-bottom {
-  margin-top: auto; /* <<< ESSA É A CORREÇÃO */
-  padding-top: 2rem; /* Dá um espaço para respirar */
-}
-
-.portfolio-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 3rem;
-  padding-top: 3rem;
-}
-
-.project-card {
-  background: var(--portfolio-bg-color);
-  color: var(--portfolio-text-color);
-  border-radius: 1.5rem;
-  overflow: hidden;
-  box-shadow: 0 0 15px var(--box-shadow-color);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-.project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 25px var(--main-color);
-}
-
-.project-image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.project-content {
-  padding: 2rem;
-}
-
-.project-title {
-  font-size: 2rem;
-  font-weight: 700;
-}
-
-.project-description {
-  font-size: 1.4rem;
-  margin: 1rem 0;
-}
-
-.project-tags {
-  margin-top: 1rem;
-}
-
-.project-tags .tag {
-  display: inline-block;
-  background: var(--main-color);
-  color: #fff;
-  padding: 0.4rem 1rem;
-  border-radius: 0.5rem;
-  font-size: 1.2rem;
-  margin-right: 0.5rem;
-}
-
-/* === MODAL === */
-.modal-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.75);
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-}
-
-.modal-content {
-  background: var(--second-bg-color);
-  color: var(--text-color);
-  max-width: 800px;
-  padding: 3rem;
-  border-radius: 1.5rem;
-  text-align: center;
-  position: relative;
-}
-
-.modal-close-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1.5rem;
-  font-size: 3rem;
-  cursor: pointer;
-  color: var(--main-color);
-}
-
-.modal-img {
-  width: 100%;
-  border-radius: 1rem;
-  margin-bottom: 2rem;
-}
-
-.modal-tech-tags {
-  margin: 1.5rem 0;
-}
-
-.modal-tech-tags .tag {
-  background: var(--main-color);
-  color: white;
-  padding: 0.5rem 1rem;
-  margin: 0.3rem;
-  border-radius: 0.5rem;
-}
-
-.modal-links a {
-  display: inline-block;
-  margin: 1rem;
 }
