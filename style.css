@@ -213,6 +213,7 @@ section {
   font-size: 34px;
   font-weight: 600;
   min-width: 280px;
+  overflow: hidden;
 }
 
 .text-animation span {
@@ -810,7 +811,7 @@ body.light-theme .services-box:hover {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 100vw;
+    width: 100%;
     position: fixed;
     top: 0;
     left: 0;
