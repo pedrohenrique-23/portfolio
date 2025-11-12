@@ -1174,11 +1174,6 @@ body.light-theme .services-box:hover {
   font-size: 1.5rem;
 }
 
-.modal-links .btn {
-  padding: 0.8rem 2rem;
-  font-size: 1.4rem;
-}
-
 @media (max-width: 768px) {
   .timeline::before {
     left: 10px;
@@ -1211,6 +1206,6 @@ body.light-theme .services-box:hover {
 
   .modal-links .btn {
     padding: 0.8rem 2rem;
-    font-size: 1.4rem;
+    font-size: 1.32rem;
   }
 }
