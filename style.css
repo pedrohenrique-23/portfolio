@@ -1203,4 +1203,9 @@ body.light-theme .services-box:hover {
   .timeline-item:nth-child(even) .timeline-content::after {
     left: -28px;
   }
+
+  .modal-links .btn {
+    padding: 0.8rem 2rem;  
+    font-size: 1.4rem;
+  }
 }
