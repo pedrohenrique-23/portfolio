@@ -35,20 +35,16 @@ body.light-theme {
 
 html {
   font-size: 62.5%;
-  overflow-x: hidden;
+  overflow-x: hidden; /* CORRETO: Evita scroll horizontal */
+  font-family: "Poppins", sans-serif;
 }
 
 body {
   background: var(--bg-color);
   color: var(--text-color);
   padding-top: 9rem;
-}
-
-html,
-body {
-  overflow-x: hidden;
-  /* width: 100%; */
-  font-family: "Poppins", sans-serif;
+  width: 100%; /* CORRETO: Define o body como 100% */
+  /* Removemos o width: 100% duplicado do 'html, body' */
 }
 
 .header {
