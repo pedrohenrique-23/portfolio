@@ -34,7 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// FUNÇÃO ORIGINAL MANTIDA (SE VOCÊ A UTILIZA)
 function keepMenuIconVisible() {
   const menuIcon = document.querySelector("#menu-icon");
 
@@ -51,11 +50,9 @@ function keepMenuIconVisible() {
   }
 }
 
-// CHAMADAS DO SWIPER REMOVIDAS
 keepMenuIconVisible();
 
 window.addEventListener("resize", () => {
-  // CHAMADAS DO SWIPER REMOVIDAS
   keepMenuIconVisible();
 });
 
@@ -108,9 +105,6 @@ themeToggleBtn.addEventListener("click", () => {
   }
 });
 
-// ==========================================================
-// LÓGICA DO MODAL CORRIGIDA
-// ==========================================================
 const portfolioBoxes = document.querySelectorAll(".portfolio-box");
 const modalOverlay = document.getElementById("project-modal-overlay");
 const modalCloseBtn = document.getElementById("modal-close-btn");
@@ -123,14 +117,11 @@ const modalProjectLink = document.getElementById("modal-project-link");
 const modalTechTags = document.getElementById("modal-tech-tags");
 
 portfolioBoxes.forEach((card) => {
-  // Encontra o link de "Ver detalhes" ESPECÍFICO deste card
+
   const detailsLink = card.querySelector(".project-details-link");
 
-  // *** AQUI ESTÁ A CORREÇÃO ***
-  // Só adicione o listener SE o 'detailsLink' foi encontrado
   if (detailsLink) {
     detailsLink.addEventListener("click", () => {
-      // O resto da lógica é o mesmo, pois 'card' ainda é o .portfolio-box
       const imgSrc = card.querySelector(".card-img").src;
       const title = card.querySelector(".portfolio-layer h4").innerText;
       const description = card.querySelector(".portfolio-layer p").innerText;
